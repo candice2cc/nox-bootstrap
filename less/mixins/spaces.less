@@ -1,0 +1,13 @@
+.mk-margin(@times,@direction) {
+  .margin-@{direction}-times-@{times} {
+    margin-@{direction}: @space-base * @times;
+  }
+
+}
+
+.mk-padding(@times,@direction) {
+  .padding-@{direction}-times-@{times} {
+    padding-@{direction}: @space-base * @times;
+  }
+
+}

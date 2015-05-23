@@ -1,0 +1,101 @@
+// Button variants
+
+.make-btn(@class) when ( @class = default) {
+  .btn-@{class},
+  .btn-@{class}:focus,
+  .btn-@{class}.focus{
+    .button-variant(@btn-default-color,@btn-default-bg,@btn-default-border);
+  }
+
+  .btn-@{class}:hover,
+  .btn-@{class}.hover {
+    .button-variant(@btn-hover-default-color,@btn-hover-default-bg,@btn-hover-default-border);
+  }
+  .btn-@{class}:active,
+  .btn-@{class}.active {
+    .button-variant(@btn-active-default-color,@btn-active-default-bg,@btn-active-default-border);
+  }
+}
+
+.make-btn(@class) when ( @class = primary) {
+  .btn-@{class},
+  .btn-@{class}:focus,
+  .btn-@{class}.focus{
+    .button-variant(@btn-primary-color,@btn-primary-bg,@btn-primary-border);
+  }
+
+  .btn-@{class}:hover,
+  .btn-@{class}.hover {
+    .button-variant(@btn-hover-primary-color,@btn-hover-primary-bg,@btn-hover-primary-border);
+  }
+  .btn-@{class}:active,
+  .btn-@{class}.active {
+    .button-variant(@btn-active-primary-color,@btn-active-primary-bg,@btn-active-primary-border);
+  }
+
+}
+.make-btn(@class) when ( @class = warning) {
+  .btn-@{class},
+  .btn-@{class}:focus,
+  .btn-@{class}.focus{
+    .button-variant(@btn-success-color,@btn-success-bg,@btn-success-border);
+  }
+
+  .btn-@{class}:hover,
+  .btn-@{class}.hover {
+    .button-variant(@btn-hover-success-color,@btn-hover-success-bg,@btn-hover-success-border);
+  }
+  .btn-@{class}:active,
+  .btn-@{class}.active {
+    .button-variant(@btn-active-success-color,@btn-active-success-bg,@btn-active-success-border);
+  }
+}
+
+
+.make-btn(@class) when ( @class = success) {
+  .btn-@{class},
+  .btn-@{class}:focus,
+  .btn-@{class}.focus{
+    .button-variant(@btn-success-color,@btn-success-bg,@btn-success-border);
+  }
+
+  .btn-@{class}:hover,
+  .btn-@{class}.hover {
+    .button-variant(@btn-hover-success-color,@btn-hover-success-bg,@btn-hover-success-border);
+  }
+  .btn-@{class}:active,
+  .btn-@{class}.active {
+    .button-variant(@btn-active-success-color,@btn-active-success-bg,@btn-active-success-border);
+  }
+}
+
+.make-btn(@class) when ( @class = danger) {
+  .btn-@{class},
+  .btn-@{class}:focus,
+  .btn-@{class}.focus{
+    .button-variant(@btn-danger-color,@btn-danger-bg,@btn-danger-border);
+  }
+
+  .btn-@{class}:hover,
+  .btn-@{class}.hover {
+    .button-variant(@btn-hover-danger-color,@btn-hover-danger-bg,@btn-hover-danger-border);
+  }
+  .btn-@{class}:active,
+  .btn-@{class}.active {
+    .button-variant(@btn-active-danger-color,@btn-active-danger-bg,@btn-active-danger-border);
+  }
+}
+
+.button-variant(@color;@background;@border-color){
+  color:@color;
+  background: @background;
+  border:1px solid @border-color;
+}
+
+.button-size(@height,@padding-vertical,@padding-horizontal,@font-size,@font-family,@line-height){
+  height: @height;
+  padding: @padding-vertical @padding-horizontal;
+  font-size: @font-size;
+  font-family: @font-family;
+  line-height: @line-height;
+}
