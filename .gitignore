@@ -12,5 +12,7 @@
 
 #filter idea dir
 /.idea/
+
+
 /dist/
 /node_modules/
