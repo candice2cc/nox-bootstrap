@@ -1,4 +1,4 @@
-(function($){
++function($){
     var menuHead = '.menu';
     var Top = function(el){
         $(el).on('click',menuHead,this.show);
@@ -32,7 +32,7 @@
     $.fn.top = Plugin;
     $.fn.top.Constructor = Top;
 
-    // HEADER NO CONFLICT
+    // TOP NO CONFLICT
     // =================
 
     $.fn.top.noConflict = function () {
@@ -45,4 +45,4 @@
     $(document).on('click.bs.top.data-api', menuHead, Top.prototype.show);
     $(document).on('click.bs.top.data-api',Top.prototype.close);
 
-})(jQuery);
+}(jQuery);
