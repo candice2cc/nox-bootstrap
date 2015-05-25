@@ -111,6 +111,27 @@ h5, .h5 {
   .text-emphasis-variant(@text-color-dander, @text-hover-color-danger);
 }
 
+// 字体大小
+// -------------------------
+.text-xl{
+  .text-size-variant(@font-size-larger,@line-height-larger,@font-family-base);
+}
+.text-lg{
+  .text-size-variant(@font-size-large,@line-height-large,@font-family-base);
+
+}
+.text-md{
+  .text-size-variant(@font-size-normal,@line-height-normal,@font-family-base);
+
+}
+.text-sm{
+  .text-size-variant(@font-size-small,@line-height-small,@font-family-weak);
+
+}
+
+
+
+
 // 背景色
 // -------------------------
 .bg-light {
