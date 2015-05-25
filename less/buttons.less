@@ -1,0 +1,91 @@
+//
+// 按钮
+// --------------------------------------------------
+
+.btn {
+  display: inline-block;
+  border-radius: @btn-radius;
+  font-family: @btn-font-family;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+  color: @btn-default-color;
+  text-decoration: none;
+  outline: none;
+}
+
+// brand样式button
+// -------------------------
+.make-btn(default);
+.make-btn(primary);
+
+.make-btn(warning);
+.make-btn(success);
+.make-btn(danger);
+
+// 禁用
+// -------------------------
+.btn-disable,
+.btn-disable:hover,
+.btn-disable:active,
+.btn-disable.hover,
+.btn-disable.active,
+.btn-disable:focus,
+.btn-disable.focus,
+.btn[disabled] {
+  color: @btn-disable-color;
+  background: @btn-disable-bg;
+  border: solid 1px @btn-disable-border;
+  cursor: not-allowed;
+  /*pointer-events: none; // Future-proof disabling of clicks*/
+}
+
+// 按钮大小
+// -------------------------
+.btn-xs {
+  .button-size(@btn-xs-height, @btn-xs-padding-vertical, @btn-xs-padding-horizontal, @btn-xs-font-size, @btn-xs-font-family, @btn-xs-line-height);
+}
+
+.btn-sm {
+  .button-size(@btn-sm-height, @btn-sm-padding-vertical, @btn-sm-padding-horizontal, @btn-sm-font-size, @btn-sm-font-family, @btn-sm-line-height);
+}
+
+.btn-md {
+  .button-size(@btn-md-height, @btn-md-padding-vertical, @btn-md-padding-horizontal, @btn-md-font-size, @btn-md-font-family, @btn-md-line-height);
+}
+
+.btn-lg {
+  .button-size(@btn-lg-height, @btn-lg-padding-vertical, @btn-lg-padding-horizontal, @btn-lg-font-size, @btn-lg-font-family, @btn-lg-line-height);
+}
+
+// 删除按钮
+// -------------------------
+
+.btn-delete,
+.btn-delete:focus,
+.btn-delete.focus {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+  border: solid 1px #cccccc;
+  color: #333333;
+  background: #f6f8fa;
+}
+
+.btn-delete:hover,
+.btn-delete.hover {
+  color: @brand-danger-hover;
+}
+
+.btn-delete:active,
+.btn-delete.active {
+  color: @btn-danger-color;
+  background: @brand-danger-active;
+  border: 1px solid @brand-danger-active;
+}

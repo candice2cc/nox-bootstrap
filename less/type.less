@@ -1,0 +1,132 @@
+//
+// Typography
+// --------------------------------------------------
+
+// 标题（h1-h6)
+// -------------------------
+h2, .h2 {
+  font-family: @font-family-h2;
+  font-weight: @headings-font-weight;
+  font-size: @font-size-h2;
+  line-height: @line-height-h2;
+  color: @text-color-h2;
+  margin: @headings-margin;
+}
+
+h3, .h3 {
+  font-family: @font-family-h3;
+  font-weight: @headings-font-weight;
+  font-size: @font-size-h3;
+  line-height: @line-height-h3;
+  color: @text-color-h3;
+  margin: @headings-margin;
+}
+
+h4, .h4 {
+  font-family: @font-family-h4;
+  font-weight: @headings-font-weight;
+  font-size: @font-size-h4;
+  line-height: @line-height-h4;
+  color: @text-color-h4;
+  margin: @headings-margin;
+}
+
+h5, .h5 {
+  font-family: @font-family-h5;
+  font-weight: @headings-font-weight;
+  font-size: @font-size-h5;
+  line-height: @line-height-h5;
+  color: @text-color-h5;
+  margin: @headings-margin;
+}
+
+// 文本对齐
+// -------------------------
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+// 大小写
+// -------------------------
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+// 文本颜色
+// -------------------------
+.text-weak {
+  .text-emphasis-variant(@text-color-weak, @text-color-weak);
+}
+
+.text-weaker {
+  .text-emphasis-variant(@text-color-weaker, @text-color-weaker);
+}
+
+.text-strong {
+  .text-emphasis-variant(@text-color-strong, @text-color-strong);
+}
+
+.text-primary {
+  .text-emphasis-variant(@text-color-primary, @text-hover-color-primary);
+}
+
+.text-success {
+  .text-emphasis-variant(@text-color-success, @text-hover-color-success);
+}
+
+.text-info {
+  .text-emphasis-variant(@text-color-normal, @text-color-normal);
+}
+
+.text-warning {
+  .text-emphasis-variant(@text-color-warning, @text-hover-color-warning);
+}
+
+.text-danger {
+  .text-emphasis-variant(@text-color-dander, @text-hover-color-danger);
+}
+
+// 背景色
+// -------------------------
+.bg-light {
+  background-color: #f1f2f4;
+}
+
+.bg-lighter {
+  background-color: #f7f8fa;
+}
+
+// 边框颜色
+// -------------------------
+.bd-light {
+  border-color: #cccccc;
+}
+
+.bd-lighter {
+  border-color: #e5e7eb;
+}

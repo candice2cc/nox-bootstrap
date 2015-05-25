@@ -1,0 +1,311 @@
+//
+// Variables
+// --------------------------------------------------
+
+//==Colors
+
+//**Brand Colors
+@brand-primary: #1ca7db;
+@brand-primary-hover: #31b7e2;
+@brand-primary-active: #1290cf;
+
+@brand-warning: #ff6600;
+@brand-warning-hover: #ff7e00;
+@brand-warning-active: #ff4e00;
+
+@brand-success: #41ba47;
+@brand-success-hover: #5bc761;
+@brand-success-active: #2ea633;
+
+@brand-danger: #d66262;
+@brand-danger-hover: #de7a7a;
+@brand-danger-active: #c84a4a;
+
+//**Gray Colors
+// #背景色
+@gray-bg-base: #fff;
+@gray-bg-light: #f1f2f4;
+@gray-bg-lighter: #f7f8fa;
+
+// #边框色
+@gray-bd-light: #cccccc;
+@gray-bd-lighter: #e5e7eb;
+
+//** Background color for `<body>`.
+@body-bg: @gray-bg-base;
+
+//** 链接颜色与下划线
+@link-color: #127db3;
+@link-hover-color: @link-color;
+
+@link-color-weak: #7ab1d1;
+@link-hover-color-weak: @link-color-weak;
+//** Link hover decoration.
+@link-hover-decoration: underline;
+
+//** Global text color on `<body>`.
+@text-color-base: #666;
+@text-color-normal: @text-color-base;
+@text-color-strong: #333;
+@text-color-weak: #999;
+@text-color-weaker: #ccc;
+
+//==字号使用
+@font-family-base: "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+@font-family-normal: @font-family-base;
+@font-family-weak: "宋体";
+
+@font-size-base: 14px;
+@font-size-normal: @font-size-base;
+@font-size-large: 16px;
+@font-size-larger: 24px;
+@font-size-small: 12px;
+
+@line-height-base: 24px;
+@line-height-normal: @line-height-base;
+@line-height-large: 28px;
+@line-height-larger: 40px;
+@line-height-small: 20px;
+
+//== scaffolding
+
+//==type
+
+//**text color
+@text-color-primary: @brand-primary;
+@text-hover-color-primary: @brand-primary-hover;
+
+@text-color-success: @brand-success;
+@text-hover-color-success: @brand-success-hover;
+
+@text-color-warning: @brand-warning;
+@text-hover-color-warning: @brand-warning-hover;
+
+@text-color-dander: @brand-danger;
+@text-hover-color-danger: @brand-danger-hover;
+
+//**headings
+@font-size-h2: 24px;
+@font-size-h3: 16px;
+@font-size-h4: 14px;
+@font-size-h5: 12px;
+
+@line-height-h2: 40px;
+@line-height-h3: 32px;
+@line-height-h4: 32px;
+@line-height-h5: 24px;
+
+@headings-font-weight: 400;
+
+@font-family-h2: @font-family-base;
+@font-family-h3: @font-family-base;
+@font-family-h4: @font-family-base;
+@font-family-h5: "宋体";
+
+@text-color-h2: #333;
+@text-color-h3: #333;
+@text-color-h4: #333;
+@text-color-h5: #666;
+
+@headings-margin: 0;
+
+//-- Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+//
+// Note: These variables are not generated into the Customizer.
+
+@zindex-navbar: 1000;
+@zindex-dropdown: 1000;
+@zindex-popover: 1060;
+@zindex-tooltip: 1070;
+@zindex-navbar-fixed: 1030;
+@zindex-modal-background: 1040;
+@zindex-modal: 1050;
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `@screen-xs` as of v3.0.1
+@screen-xs: 480px;
+//** Deprecated `@screen-xs-min` as of v3.2.0
+@screen-xs-min: @screen-xs;
+//** Deprecated `@screen-phone` as of v3.0.1
+@screen-phone: @screen-xs-min;
+
+// Small screen / tablet
+//** Deprecated `@screen-sm` as of v3.0.1
+@screen-sm: 768px;
+@screen-sm-min: @screen-sm;
+//** Deprecated `@screen-tablet` as of v3.0.1
+@screen-tablet: @screen-sm-min;
+
+// Medium screen / desktop
+//** Deprecated `@screen-md` as of v3.0.1
+@screen-md: 992px;
+@screen-md-min: @screen-md;
+//** Deprecated `@screen-desktop` as of v3.0.1
+@screen-desktop: @screen-md-min;
+
+// Large screen / wide desktop
+//** Deprecated `@screen-lg` as of v3.0.1
+@screen-lg: 1200px;
+@screen-lg-min: @screen-lg;
+//** Deprecated `@screen-lg-desktop` as of v3.0.1
+@screen-lg-desktop: @screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max: (@screen-sm-min - 1);
+@screen-sm-max: (@screen-md-min - 1);
+@screen-md-max: (@screen-lg-min - 1);
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+@grid-columns: 12;
+//** Padding between columns. Gets divided in half for the left and right.
+@grid-gutter-width: 32px;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint: @screen-sm-min;
+//** Point at which the navbar begins collapsing.
+@grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Small screen / tablet
+@container-tablet: (736px + @grid-gutter-width);
+//** For `@screen-sm-min` and up.
+@container-sm: @container-tablet;
+
+// Medium screen / desktop
+@container-desktop: (928px + @grid-gutter-width);
+//** For `@screen-md-min` and up.
+@container-md: @container-desktop;
+
+// Large screen / wide desktop
+@container-large-desktop: (1120px + @grid-gutter-width);
+//** For `@screen-lg-min` and up.
+@container-lg: @container-large-desktop;
+
+//== Utilities
+//**间隔
+@space-base: 8px;
+
+//== Components
+//
+//
+
+//== Buttons
+//
+@btn-font-family: @font-family-base;
+@btn-radius: 2px;
+
+@btn-default-color: #666;
+@btn-default-bg: #f6f8fa;
+@btn-default-border: #ccc;
+
+@btn-hover-default-color: #31b7e2;
+@btn-hover-default-bg: @btn-default-bg;
+@btn-hover-default-border: @btn-default-border;
+
+@btn-active-default-color: #fff;
+@btn-active-default-bg: @brand-primary;
+@btn-active-default-border: @brand-primary;
+
+@btn-primary-color: #fff;
+@btn-primary-bg: @brand-primary;
+@btn-primary-border: @brand-primary;
+
+@btn-hover-primary-color: @btn-primary-color;
+@btn-hover-primary-bg: @brand-primary-hover;
+@btn-hover-primary-border: @brand-primary-hover;
+
+@btn-active-primary-color: @btn-primary-color;
+@btn-active-primary-bg: @brand-primary-active;
+@btn-active-primary-border: @brand-primary-active;
+
+@btn-success-color: #fff;
+@btn-success-bg: @brand-success;
+@btn-success-border: @brand-success;
+
+@btn-hover-success-color: @btn-success-color;
+@btn-hover-success-bg: @brand-success-hover;
+@btn-hover-success-border: @brand-success-hover;
+
+@btn-active-success-color: @btn-success-color;
+@btn-active-success-bg: @brand-success-active;
+@btn-active-success-border: @brand-success-active;
+
+@btn-warning-color: #fff;
+@btn-warning-bg: @brand-warning;
+@btn-warning-border: @brand-warning;
+
+@btn-hover-warning-color: @btn-warning-color;
+@btn-hover-warning-bg: @brand-warning-hover;
+@btn-hover-warning-border: @brand-warning-hover;
+
+@btn-active-warning-color: @btn-warning-color;
+@btn-active-warning-bg: @brand-warning-active;
+@btn-active-warning-border: @brand-warning-active;
+
+@btn-danger-color: #fff;
+@btn-danger-bg: @brand-danger;
+@btn-danger-border: @brand-danger;
+
+@btn-hover-danger-color: @btn-danger-color;
+@btn-hover-danger-bg: @brand-danger-hover;
+@btn-hover-danger-border: @brand-danger-hover;
+
+@btn-active-danger-color: @btn-danger-color;
+@btn-active-danger-bg: @brand-danger-active;
+@btn-active-danger-border: @brand-danger-active;
+
+@btn-disable-color: #ccc;
+@btn-disable-bg: #f6f8fa;
+@btn-disable-border: #ccc;
+
+//** Button尺寸
+@btn-padding-base-vertical: 0;
+
+@btn-xs-height: 24px;
+@btn-xs-padding-vertical: @btn-padding-base-vertical;
+@btn-xs-padding-horizontal: 15px;
+@btn-xs-font-size: 12px;
+@btn-xs-font-family: @font-family-weak;
+@btn-xs-line-height: 22px;
+
+@btn-sm-height: 32px;
+@btn-sm-padding-vertical: @btn-padding-base-vertical;
+@btn-sm-padding-horizontal: 30px;
+@btn-sm-font-size: 14px;
+@btn-sm-font-family: @font-family-base;
+@btn-sm-line-height: 30px;
+
+@btn-md-height: 36px;
+@btn-md-padding-vertical: @btn-padding-base-vertical;
+@btn-md-padding-horizontal: 35px;
+@btn-md-font-size: 14px;
+@btn-md-font-family: @font-family-base;
+@btn-md-line-height: 34px;
+
+@btn-lg-height: 48px;
+@btn-lg-padding-vertical: @btn-padding-base-vertical;
+@btn-lg-padding-horizontal: 40px;
+@btn-lg-font-size: 16px;
+@btn-lg-font-family: @font-family-base;
+@btn-lg-line-height: 46px;
+
+
+
+
+
+
+

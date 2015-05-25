@@ -1,0 +1,18 @@
+.gitignore
+
+# filter eclipse file
+*.classpath
+*.project
+
+# filter eclipse dir
+/.settings/
+
+# filter idea file
+*.iml
+
+#filter idea dir
+/.idea/
+
+
+/dist/
+/node_modules/
