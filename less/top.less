@@ -1,0 +1,118 @@
+.site-top{
+  background: @top-bg;
+  color:@top-text-color;
+  font-size:@top-font-size;
+}
+
+.site-top a{
+  color:@top-text-color;
+}
+.site-top a:hover{
+  color:@top-hover-text-color;
+  text-decoration: none;
+}
+
+.site-top ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-top .nav li{
+  display: inline-block;
+  height: @top-height;
+  line-height: @top-height;
+}
+.site-top .nav li:nth-last-child(n+2):after{
+  content:"|";
+  display: inline-block;
+  margin: 0 24px;
+  color:@text-color-normal;
+}
+
+//右侧
+//未登陆
+.site-top .unlogin > a{
+  display: inline-block;
+  padding:0 10px;
+  height: @top-height;
+  line-height: @top-height;
+}
+//已经登陆
+
+.site-top .menu{
+  display: inline-block;
+  position: relative;
+  float:right;
+  vertical-align: top;
+}
+
+.site-top .menu-hd{
+  padding:0 10px;
+  height: @top-height;
+  line-height: @top-height;
+}
+
+.site-top .menu-hd:hover{
+  color:@top-hover-text-color;
+}
+.site-top .menu.active .menu-hd{
+  background: @top-menu-hd-active-bg;
+  color:@top-active-text-color;
+}
+
+.site-top .menu-bd{
+  display: none;
+  position: absolute;
+  left:0;
+  color:@text-color-normal;
+  border:1px solid @gray-bd-lighter;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background: @top-menu-bd-bg;
+}
+
+.site-top .menu.active .menu-bd{
+  display: block;
+}
+.site-top .menu-bd a{
+  color:@text-color-normal;
+}
+.site-top .menu-bd a:hover{
+  color:@link-color-weak;
+}
+
+.user-center .menu-bd{
+  right:0;
+  min-width: 94px;
+}
+.user-center .menu-hd > span{
+  display: inline-block;
+  max-width: 6.5em;
+}
+
+.site-top .menu-list{
+  padding: 8px 0;
+}
+.site-top .menu-list li{
+  display: block;
+  padding: 0 16px;
+  line-height: 32px;
+
+}
+.site-top .menu-list li:hover{
+  background: @top-menu-item-hover-bg;
+  color:@link-color-weak;
+}
+
+.user-msg .menu-bd{
+  max-width: 174px;
+}
+.site-top .menu-panel-body{
+  padding: 8px 16px;
+  line-height: 32px;
+  border-bottom:1px solid @gray-bd-lighter;
+}
+.site-top .menu-panel-footer{
+  line-height: 32px;
+  padding: 0 16px;
+}
