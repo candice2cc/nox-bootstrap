@@ -111,22 +111,47 @@ h5, .h5 {
   .text-emphasis-variant(@text-color-dander, @text-hover-color-danger);
 }
 
+// 字体大小
+// -------------------------
+.text-xl {
+  .text-size-variant(@font-size-larger, @line-height-larger, @font-family-base);
+}
+
+.text-lg {
+  .text-size-variant(@font-size-large, @line-height-large, @font-family-base);
+
+}
+
+.text-md {
+  .text-size-variant(@font-size-normal, @line-height-normal, @font-family-base);
+
+}
+
+.text-sm {
+  .text-size-variant(@font-size-small, @line-height-small, @font-family-weak);
+
+}
+
 // 背景色
 // -------------------------
 .bg-light {
-  background-color: #f1f2f4;
+  background-color: @gray-bg-light;
 }
 
 .bg-lighter {
-  background-color: #f7f8fa;
+  background-color: @gray-bd-lighter;
+}
+
+.bg-normal {
+  background-color: @gray-bg-base;
 }
 
 // 边框颜色
 // -------------------------
 .bd-light {
-  border-color: #cccccc;
+  border-color: @gray-bd-light;
 }
 
 .bd-lighter {
-  border-color: #e5e7eb;
+  border-color: @gray-bd-lighter;
 }
