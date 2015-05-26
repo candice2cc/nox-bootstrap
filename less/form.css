@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+.form {
+  display: block;
+  margin-top: 0em;
+}
+.form-group {
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.form-group > label {
+  font-size: 14px;
+  color: #666666;
+  height: 36px;
+  line-height: 36px;
+  text-align: right;
+}
+input.form-control {
+  display: block;
+  width: 100%;
+  height: 36px;
+  padding: 8px;
+  line-height: 20px;
+  color: #666666;
+  border: 1px #cccccc solid;
+  border-radius: 2px;
+}
+input:focus {
+  outline-offset: 0;
+}
+.form-group > div {
+  font-size: 14px;
+  color: #666666;
+  overflow: hidden;
+}
+.help-block {
+  display: block;
+  color: #999999;
+  line-height: 20px;
+  padding: 4px 0;
+}
+textarea.form-control {
+  height: auto;
+}
+.checkbox-inline + .checkbox-inline {
+  margin-top: 0;
+  margin-left: 24px;
+}
+.checkbox-inline,
+.radio-inline {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  cursor: pointer;
+  height: 36px;
+  line-height: 20px;
+}
