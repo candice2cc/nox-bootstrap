@@ -3,15 +3,18 @@
   color: @top-text-color;
   font-size: @top-font-size;
 }
+.site-top-link{
+  color:@top-text-color;
+  &:hover{
+    color: @top-hover-text-color;
+    text-decoration: none;
+  }
+}
 
 .site-top a {
-  color: @top-text-color;
+  &:extend(.site-top-link all);
 }
 
-.site-top a:hover {
-  color: @top-hover-text-color;
-  text-decoration: none;
-}
 
 .site-top ul {
   margin: 0;
@@ -32,13 +35,17 @@
   color: @text-color-normal;
 }
 
+.right-click-area{
+  padding: 0 10px;
+  height: @top-height;
+  line-height: @top-height;
+}
+
 //右侧
 //未登陆
 .site-top .unlogin > a {
   display: inline-block;
-  padding: 0 10px;
-  height: @top-height;
-  line-height: @top-height;
+  &:extend(.right-click-area all);
 }
 
 //已经登陆
@@ -51,9 +58,7 @@
 }
 
 .site-top .menu-hd {
-  padding: 0 10px;
-  height: @top-height;
-  line-height: @top-height;
+  &:extend(.right-click-area all);
 }
 
 .site-top .menu-hd:hover {
@@ -85,13 +90,18 @@
   display: block;
 }
 
-.site-top .menu-bd a {
+.user-center-link{
   color: @text-color-normal;
+  &:hover{
+    color: @link-color-weak;
+    text-decoration: none;
+  }
+}
+.user-center .menu-bd a{
+  &:extend(.user-center-link all);
 }
 
-.site-top .menu-bd a:hover {
-  color: @link-color-weak;
-}
+
 
 .user-center .menu-bd {
   right: 0;
@@ -132,4 +142,7 @@
 .site-top .menu-panel-footer {
   line-height: 32px;
   padding: 0 16px;
+}
+.site-top .menu-panel-footer a{
+  &:extend(a.link-weak all);
 }
