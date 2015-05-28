@@ -20,6 +20,7 @@ var paths = {
     less:'./less/nox-bootstrap.less',
     js:'./js/*.js',
     image:'./image/*',
+    fonts:'./fonts/*',
     dist:'./dist'
 };
 
@@ -50,9 +51,17 @@ gulp.task('image', function () {
         .pipe(notify({message: 'Image task complete'}));
 });
 
+//拷贝字体文件
+gulp.task('fonts',function(){
+    return gulp.src(paths.fonts)
+        .pipe(gulp.dest('fonts',{cwd:paths.dist}))
+        .pipe(notify({message: 'Fonts task complete'}))
+
+});
+
 //设置默认任务（default）
 gulp.task('default', ['clean'], function () {
-    gulp.start('less','js','image');
+    gulp.start('less','js','image','fonts');
 });
 
 //清除文件
