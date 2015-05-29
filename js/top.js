@@ -2,10 +2,9 @@
     var menuHead = '.menu > .menu-hd';
     var menuBody = '.menu > .menu-bd';
     var Top = function (el) {
-        $(el).on('click', menuHead, this.show);
+        $(el).on('click', menuHead, this.toggle);
     };
     Top.VERSION = '1.0.0';
-    Top.TRANSITION_DURATION = 150;
 
     Top.prototype.toggle = function (e) {
         var $this = $(this);

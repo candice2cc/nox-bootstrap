@@ -5,7 +5,6 @@
         $(el).on('click', weiXinPub, this.show);
     };
     Footer.VERSION = '1.0.0';
-    Footer.TRANSITION_DURATION = 150;
 
     Footer.prototype.show = function (e) {
         $(modalWeiXin).toggleClass("active");
