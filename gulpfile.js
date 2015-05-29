@@ -19,7 +19,7 @@ var LessPluginCleanCSS = require('less-plugin-clean-css'),
 var paths = {
     less:'./less/nox-bootstrap.less',
     js:'./js/*.js',
-    image:'./image/*',
+    image:'./images/*',
     fonts:'./fonts/*',
     dist:'./dist'
 };
@@ -44,11 +44,11 @@ gulp.task('js', function () {
         .pipe(notify({message: 'JS task complete'}));
 });
 //压缩图片
-gulp.task('image', function () {
+gulp.task('images', function () {
     return gulp.src(paths.image)
         .pipe(imagemin({optimizationLevel: 3, progressive: true, interlaced: true}))
-        .pipe(gulp.dest('image',{cwd:paths.dist}))
-        .pipe(notify({message: 'Image task complete'}));
+        .pipe(gulp.dest('images',{cwd:paths.dist}))
+        .pipe(notify({message: 'Images task complete'}));
 });
 
 //拷贝字体文件
@@ -61,7 +61,7 @@ gulp.task('fonts',function(){
 
 //设置默认任务（default）
 gulp.task('default', ['clean'], function () {
-    gulp.start('less','js','image','fonts');
+    gulp.start('less','js','images','fonts');
 });
 
 //清除文件
