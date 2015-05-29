@@ -2,50 +2,50 @@
   background: @top-bg;
   color: @top-text-color;
   font-size: @top-font-size;
-  a{
-    color:@top-text-color;
-    &:hover{
+  a {
+    color: @top-text-color;
+    &:hover {
       color: @top-hover-text-color;
       text-decoration: none;
     }
   }
-  ul{
+  ul {
     margin: 0;
     padding: 0;
   }
-  .nav li{
+  .nav li {
     display: inline-block;
     height: @top-height;
     line-height: @top-height;
-    &:nth-last-child(n+2):after{
+    &:nth-last-child(n+2):after {
       content: "|";
       display: inline-block;
       margin: 0 24px;
       color: @text-color-normal;
     }
   }
-  .pull-right{
-    .menu{
+  .pull-right {
+    .menu {
       display: inline-block;
       position: relative;
       float: right;
       vertical-align: top;
     }
 
-    .menu-hd{
+    .menu-hd {
       padding: 0 10px;
       height: @top-height;
       line-height: @top-height;
-      &:hover{
+      &:hover {
         color: @top-hover-text-color;
       }
-      > i{
+      > i {
         display: inline-block;
         line-height: @top-height;
         vertical-align: top;
       }
     }
-    .menu.active .menu-hd{
+    .menu.active .menu-hd {
       background: @top-menu-hd-active-bg;
       color: @top-active-text-color;
     }
@@ -54,23 +54,23 @@
       max-width: 12em;
     }
     //登陆 注册
-    .unlogin a{
+    .unlogin a {
       display: inline-block;
       &:extend(.site-top .pull-right .menu-hd);
     }
 
-    .menu-bd{
+    .menu-bd {
       display: none;
       position: absolute;
-      left: 0;
+
       color: @text-color-normal;
       border: 1px solid @gray-bd-lighter;
       border-bottom-left-radius: 2px;
       border-bottom-right-radius: 2px;
       background: @top-menu-bd-bg;
-      z-index:@zindex-dropdown;
+      z-index: @zindex-dropdown;
     }
-    .menu.active .menu-bd{
+    .menu.active .menu-bd {
       display: block;
     }
     .user-center .menu-bd {
@@ -78,23 +78,24 @@
       width: 94px;
     }
     .user-msg .menu-bd {
+      left: 0;
       max-width: 174px;
     }
 
-    .menu-list{
+    .menu-list {
       padding: 8px 0;
-      li{
+      li {
         display: block;
         padding: 0 16px;
         line-height: 32px;
-        &:hover{
+        &:hover {
           background: @top-menu-item-hover-bg;
           color: @link-color-weak;
         }
       }
-      a{
+      a {
         color: @text-color-normal;
-        &:hover{
+        &:hover {
           color: @link-color-weak;
           text-decoration: none;
         }
@@ -109,7 +110,7 @@
     .menu-panel-footer {
       line-height: 32px;
       padding: 0 16px;
-      a{
+      a {
         &:extend(a.link-weak all);
       }
     }
