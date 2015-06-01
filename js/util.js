@@ -645,18 +645,27 @@
      * 获取token
      * @returns {*}
      */
-    function getToken () {
+    function getToken (params) {
+        var successCallback = function (retData) {
+            // successCallBack
+            token = $('#js-header').attr('data-token');
+        };
+        params = $.extend({},{
+            url: '/api/gettoken',
+            data: {},
+            successCallback: successCallback,
+            errorCallback: '',
+            failCallback: '',
+            alwaysCallback: ''
+        }, params);
         // 获取token
         util.ajaxGet(
-            '/api/gettoken',
-            {},
-            function (retData) {
-                // successCallBack
-                token = $('#js-header').attr('data-token');
-            },
-            '',
-            '',
-            '',
+            params.url,
+            params.data,
+            params.successCallback,
+            params.errorCallback,
+            params.failCallback,
+            params.alwaysCallback,
             {async: false}
         );
         return token;
