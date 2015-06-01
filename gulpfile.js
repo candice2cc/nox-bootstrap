@@ -39,7 +39,7 @@ gulp.task('less', function () {
 gulp.task('js', function () {
     return gulp.src(paths.js)
         .pipe(concat('nox-bootstrap.js'))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(gulp.dest('js', {cwd: paths.dist}))
         .pipe(notify({message: 'JS task complete'}));
 });
