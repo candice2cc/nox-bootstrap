@@ -7,19 +7,19 @@ var path = require('path');
 var del = require('del');
 var LessPluginCleanCSS = require('less-plugin-clean-css'),
     LessPluginAutoPrefix = require('less-plugin-autoprefix'),
-    cleancss = new LessPluginCleanCSS({ advanced: true }),
-    autoprefix= new LessPluginAutoPrefix({ browsers: ["last 2 versions"] });
+    cleancss = new LessPluginCleanCSS({advanced: true}),
+    autoprefix = new LessPluginAutoPrefix({browsers: ["last 2 versions"]});
 
 var paths = {
-    less:'./less/nox-bootstrap.less',
-    dist:'./dist'
+    less: './less/nox-bootstrap.less',
+    dist: './dist'
 };
 
 
 gulp.task('less', function () {
     return gulp.src(paths.less)
         .pipe(less({
-            paths: [ path.join(__dirname, 'less', 'includes') ],
+            paths: [path.join(__dirname, 'less', 'includes')],
             plugins: [autoprefix, cleancss]
         }))
         .pipe(gulp.dest('./dist/css'));
@@ -27,6 +27,7 @@ gulp.task('less', function () {
 
 //清除文件
 gulp.task('clean', function (cb) {
-    del(paths.dist,{force:true}, cb)
+    del(paths.dist, {force: true}, cb)
 });
 
+gulp.task('default', ['clean']);
