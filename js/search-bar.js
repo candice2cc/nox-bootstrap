@@ -45,7 +45,7 @@
             this.$searchBtn = $('<button class="btn btn-xs btn-primary"><i class="nox-search"></i></button>').appendTo(this.$box);
         }
         this.$sugList = $('<ul class="search-sug"></ul>');
-        this.$searchInput.after(this.$sugList);
+        this.$box.append(this.$sugList);
         // bind event handlers
         this.$searchInput.on('keydown', function(e) {
             that.onKeydown(e);

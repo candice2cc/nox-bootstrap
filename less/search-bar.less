@@ -1,3 +1,17 @@
+// Core variables and mixins
+@import "variables.less";
+@import "mixins.less";
+// Reset and dependencies
+@import "normalize.less";
+// Core CSS
+@import "scaffolding.less";
+@import "type.less";
+// Components
+@import "icomoon.less";
+@import "buttons.less";
+// Utility classes
+@import "utilities";
+
 .nox-search-box {
   display: inline-block;
 }
@@ -21,11 +35,7 @@
   border: 1px solid #ccc;
   padding: 0 10px;
 }
-.btn-blue {
-  color: #fff;
-  background: #1ca7db;
-  border: 1px solid #1ca7db;
-}
+
 .nox-search-box .search-sug {
   text-align: left;
   line-height: 32px;

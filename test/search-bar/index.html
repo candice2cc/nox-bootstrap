@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .search-sug {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            width: 100%;
+            display: none;
+            text-align: center;
+        }
+        .search-sug.expanded {
+            display: block;
+        }
+        .search-sug a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .active {
+            color: red;
+        }
+    </style>
+    <link rel="stylesheet/less" type="text/css" href="../../less/search-bar.less">
+</head>
+<body>
+    <div data-role="search-bar" data-sug-delay="1500" data-default-sug="default,sug,list" data-max-sug="5" data-default-query="abc"></div>
+    <script src="../../lib/jquery.min.js"></script>
+    <script src="./less.min.js"></script>
+    <script src="../../js/util.js"></script>
+    <script src="../../js/search-bar.js"></script>
+    <script>
+        $(function() {
+            window.$searchBars = [];
+            // console.log($('[data-role=search-bar]'));
+            $('[data-role=search-bar]').each(function(i, e) {
+                var $this = $(this);
+                window.$searchBars.push($this.searchBar({
+                    defaultSugList: ['太极熊猫', '我叫MT 2', '海岛奇兵'],
+                    /**
+                     * @method queryAction how to go search with given query
+                     * @param query text to be searched
+                     *
+                     */
+                    queryAction: function(query) {
+                        var url = '/games/mobile/search?' + util.formatUrlParameters({
+                            word: query
+                        });
+                        console.log('GOING TO', url);
+                    },
+                    /**
+                     * @method how to get and format sug data
+                     * @param {string} query query from which to get sug
+                     * @param {function} callback callback that takes formatted sug in the form of [{name: 'NAME TO BE SHOWN', link: '/path/to/search/result'}]
+                     */
+                    sugGetter: function(query, callback, defaultSugList) {
+                        function adapter(data){
+                            var ret = [];
+                            for (var i = 0; i < data.length; i++) {
+                                var item = {};
+                                item.name = data[i];
+                                item.link = '/games/mobile/search?' + util.formatUrlParameters({
+                                    word: data[i]
+                                });
+                                ret.push(item);
+                            }
+                            return ret;
+
+                        }
+                        if(typeof query != 'string') {
+                            return;
+                        }
+                        if (typeof callback != 'function') {
+                            callback = function() {};
+                        }
+                        if (defaultSugList && !query) {
+                            var data = adapter(defaultSugList);
+                            console.log(data);
+                            callback(data);
+                            return;
+                        }
+                        var url = '/games/mobile/listname/' + query;
+
+                        // $.getJSON(url, function(rawData) {
+                        //     if (rawData.err_code != 0) {
+                        //         return false;
+                        //     }
+                        //     var data = adapter(rawData.data);
+                        //     callback(data);
+                        // });
+                        callback([{
+                            name: 'SUG1',
+                            link: '/games/mobile/search/SUG1'
+                        }, {
+                            name: 'SUG2',
+                            link: '/games/mobile/search/SUG2'
+                        }]);
+                    },
+
+
+
+                }));
+            });
+        });
+    </script>
+</body>
+</html>

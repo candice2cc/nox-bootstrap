@@ -326,6 +326,7 @@
 //
 @header-height: 72px;
 @header-padding: 20px;
+@sub-nav-height:40px;
 
 
 
@@ -343,5 +344,59 @@
 @icon-font-svg-id:        "icomoon";
 
 
+//== 圆角尺寸
+@border-radius-base: 2px;
 
+
+//== Forms
+//
+//##
+
+//** `<input>` background color
+@input-bg:                       @gray-bg-base;
+//** `<input disabled>` background color
+@input-bg-disabled:              @gray-bg-lighter;
+
+//** Text color for `<input>`s
+@input-color:                    @text-color-base;
+//** `<input>` border color
+@input-border:                   @gray-bd-light;
+
+// TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
+//** Default `.form-control` border radius
+// This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
+@input-border-radius:            2px;
+//** Large `.form-control` border radius
+@input-border-radius-large:      2px;
+//** Small `.form-control` border radius
+@input-border-radius-small:      2px;
+
+//** Border color for inputs on focus
+@input-border-focus:             @text-color-weak;
+
+//** Placeholder text color
+@input-color-placeholder:        @text-color-weak;
+
+//** Default `.form-control` height
+@input-height-base:              36px;
+//** Large `.form-control` height
+@input-height-large:             40px;
+//** Small `.form-control` height
+@input-height-small:             36px;
+
+//** `.form-group` margin
+@form-group-margin-bottom:       24px;
+@form-group-margin-bottom-large: 32px;
+@form-group-margin-bottom-small: 16px;
+
+@legend-color:                   @gray-bg-lighter;
+@legend-border-color:            @gray-bd-light;
+
+//** Background color for textual input addons
+@input-group-addon-bg:           @gray-bg-lighter;
+//** Border color for textual input addons
+@input-group-addon-border-color: @input-border;
+
+//** Disabled cursor for form controls and buttons.
+@cursor-disabled:                not-allowed;
 

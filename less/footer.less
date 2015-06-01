@@ -1,5 +1,21 @@
 body > footer {
   border-top: 1px solid;
+  a{
+    display: inline-block;
+    height: @footer-height;
+    line-height: @footer-height;
+    color: @footer-text-color;
+    &:nth-last-child(n+2){
+      margin-right: 10px;
+    }
+    &:hover{
+      color: @footer-text-color;
+      text-decoration: none;
+    }
+  }
+  i{
+    margin-right: 4px;
+  }
 }
 
 @-moz-document url-prefix() {
@@ -8,25 +24,6 @@ body > footer {
   }
 }
 
-body > footer a {
-  display: inline-block;
-  height: @footer-height;
-  line-height: @footer-height;
-  color: @footer-text-color;
-}
-
-body > footer a:nth-last-child(n+2) {
-  margin-right: 10px;
-}
-
-body > footer a:hover {
-  color: @footer-text-color;
-  text-decoration: none;
-}
-
-body > footer i {
-  margin-right: 4px;
-}
 
 .modal-weixin {
   display: none;
@@ -35,37 +32,39 @@ body > footer i {
   top: 0;
   width: 100%;
   height: 100%;
-
-  background-color: rgba(0, 0, 0, 0.75);
   background: #000000 \9;
+  background-color: rgba(0, 0, 0, 0.75);
+  background-size:cover;
+
 
   transition: all .25s linear;
   z-index: @zindex-modal-background;
+  &.active{
+    display: block;
+  }
+  .weixin-content {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 1px solid #999;
+
+    width: 282px;
+    height: 322px;
+    line-height: 40px;
+    padding: 269px 11px 11px 11px;
+    text-align: center;
+
+    background-color: #ffffff;
+    background-image: url(../images/f1-graph-qr2.jpg);
+    background-repeat: no-repeat;
+    background-position: 11px 11px;
+  }
+
 }
 
-.modal-weixin.active {
-  display: block;
-}
 
-.weixin-content {
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  border: 1px solid #999;
 
-  width: 282px;
-  height: 322px;
-  line-height: 40px;
-  padding: 269px 11px 11px 11px;
-  text-align: center;
-
-  background-color: #ffffff;
-  background-image: url(../image/f1-graph-qr2.jpg);
-  background-repeat: no-repeat;
-  background-position: 11px 11px;
-  background-size: 258px 258px;
-}

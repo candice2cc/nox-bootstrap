@@ -215,7 +215,7 @@
                         }
                         break;
                     case 'idcard':
-                        if(value !== '' && !is_url(value)){
+                        if(value !== '' && !is_idcard(value)){
                             failType = validateReasonObject['idcard'];
                         }
                         break;

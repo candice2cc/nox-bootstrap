@@ -1,0 +1,496 @@
+// form
+
+
+
+//input[type="search"] {
+//  .box-sizing(border-box);
+//}
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 6px 0 0;
+  margin-top: 1px \9; // IE8-9
+  line-height: normal;
+}
+
+// Set the height of file controls to match text inputs
+input[type="file"] {
+  display: block;
+}
+
+// Make range inputs behave like textual form controls
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+// Focus for file, radio, and checkbox
+//input[type="file"]:focus,
+//input[type="radio"]:focus,
+//input[type="checkbox"]:focus {
+//  .tab-focus();
+//}
+
+.form-group {
+	margin-bottom: @form-group-margin-bottom;
+}
+.form-strip .form-group {
+  margin-bottom: @form-group-margin-bottom-small;
+}
+.form-large {
+  textarea.form-control,
+  select[multiple]& {
+    height: auto;
+  }
+  .form-group {
+    margin-bottom: @form-group-margin-bottom-large;
+//    & label {
+//      font-size: @font-size-large;
+//    }
+  }
+  .form-control {
+    font-size: @font-size-large;
+    line-height: @line-height-base;
+    height: @input-height-large;
+
+  }
+  .radio-inline,
+  .checkbox-inline {
+    height: @input-height-large;
+    line-height: @input-height-large;
+  }
+
+}
+.form-large {
+  @media (min-width: @screen-sm-min) {
+    .form-group {
+      .control-label {
+        padding-top: 8px;
+      }
+
+    }
+  }
+}
+
+.form-group > label {
+	font-size: @font-size-base;
+	color: @text-color-base;
+//	height: @input-height-base;
+	line-height: @line-height-base;
+	text-align: right;
+    display: inline-block;
+    margin-bottom: @space-base;
+}
+.form-control {
+	display: block;
+  	width: 100%;
+  	height: @input-height-base;
+  	padding: @space-base;
+  	line-height: @line-height-small;
+    font-size: @font-size-base;
+	color: @text-color-base;
+	border: 1px solid @input-border;
+	border-radius: @input-border-radius;
+    background-color: @input-bg;
+
+    .form-control-focus();
+
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: @input-bg-disabled;
+    opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+  }
+
+  // Reset height for `textarea`s
+  textarea& {
+    height: auto;
+  }
+}
+
+.help-block {
+	display: block;
+	color: @text-color-weak;
+	line-height: @line-height-small;
+	padding:4px 0 0 0;
+    margin: 0;
+}
+.help-block.error {
+    color: @brand-danger;
+}
+
+
+.radio,
+.checkbox {
+  position: relative;
+  display: block;
+
+  label {
+    min-height: @line-height-base; // Ensure the input doesn't jump when there is no text
+    padding-left: 24px;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+  }
+}
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  position: absolute;
+  margin-left: -24px;
+  margin-top: 4px \9;
+}
+
+// 垂直显示
+.radio + .radio,
+.checkbox + .checkbox {
+  margin-top: -8px; // Move up sibling radios or checkboxes for tighter spacing
+}
+
+// Radios and checkboxes on same line
+// 水平显示
+.radio-inline,
+.checkbox-inline {
+  position: relative;
+  display: inline-block;
+  padding-left: 24px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: normal;
+  cursor: pointer;
+  // 定行高36
+  height: @input-height-base;
+  line-height: @input-height-base;
+  & input[type="radio"],
+  input[type="checkbox"] {
+    margin-top: 11px;
+  }
+}
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+  margin-top: 0;
+  margin-left: 16px; // space out consecutive inline controls
+}
+
+// Apply same disabled cursor tweak as for inputs
+// Some special care is needed because <label>s don't inherit their parent's `cursor`.
+//
+// Note: Neither radios nor checkboxes can be readonly.
+input[type="radio"],
+input[type="checkbox"] {
+  &[disabled],
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+  }
+}
+// These classes are used directly on <label>s
+.radio-inline,
+.checkbox-inline {
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+  }
+}
+// These classes are used on elements with <label> descendants
+.radio,
+.checkbox {
+  &.disabled,
+  fieldset[disabled] & {
+    label {
+      cursor: @cursor-disabled;
+    }
+  }
+}
+
+
+// Static form control text
+//
+// Apply class to a `p` element to make any string of text align with labels in
+// a horizontal form layout.
+
+.form-control-static {
+  // Size it appropriately next to real form controls
+  padding-top: (@space-base + 1);
+  padding-bottom: (@space-base + 1);
+  // Remove default margin from `p`
+  margin-bottom: 0;
+  min-height: @input-height-small;
+
+  &.input-lg,
+  &.input-sm {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+.form-horizontal {
+
+  // Consistent vertical alignment of radios and checkboxes
+  //
+  // Labels also get some reset styles, but that is scoped to a media query below.
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline {
+//    margin-top: 0;
+//    margin-bottom: 0;
+//    padding-top: 1px; // Default padding plus a border
+  }
+
+  // Make form groups behave like rows
+  .form-group {
+    .make-row();
+  }
+
+  // Reset spacing and right align labels, but scope to media queries so that
+  // labels on narrow viewports stack the same as a default form example.
+  @media (min-width: @screen-sm-min) {
+    .control-label {
+      text-align: right;
+      margin-bottom: 0;
+//      padding-top: (@padding-base-vertical + 1); // Default padding plus a border
+      padding-top: 6px;
+    }
+  }
+
+  // Validation states
+  //
+  // Reposition the icon because it's now within a grid column and columns have
+  // `position: relative;` on them. Also accounts for the grid gutter padding.
+  .has-feedback .form-control-feedback {
+    right: (@grid-gutter-width / 2);
+  }
+
+}
+
+
+
+
+
+
+/*****************上传图片相关样式*******************/
+// 图片列表,如果只有一个可以不用列表
+ul.upload-image-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 408px; // li之间的间距是8
+  width:-moz-calc(100% + 8px);
+  width:-webkit-calc(100% + 8px);
+  width: calc(100% + 8px);
+  overflow: hidden;
+  margin-bottom: -@space-base;
+  & li {
+    float: left;
+    margin-right: @space-base;
+    margin-bottom: @space-base;
+  }
+}
+// 标准尺寸的图片80*80
+.upload-image {
+  width: 80px;
+  height: 80px;
+  // 删除按钮定位
+  .image-remove {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  & .upload-image-show {
+    line-height: 80px;
+    .image-remove {
+      top: -28px;
+    }
+  }
+}
+.upload-image-show,
+.upload-image-process,
+.upload-image-add {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+// 增加图片进度条显示图片等
+.upload-image-show {
+  text-align: center;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+  }
+}
+.get-image-wrapper {
+  border: 1px dashed @gray-bd-light;
+  padding: 7px;
+}
+// 进度条&错误提示
+.upload-image-process {
+  .get-image-wrapper();
+  & .progress {
+    // 改变大小时需要重新定义
+    margin-top: 27px;
+  }
+  & .upload-error {
+    text-align: center;
+    word-break: break-all;
+    height: 100%;
+    // 改变大小时需要重新定义
+    line-height: 64px;
+    & span {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 20px;
+      color: @brand-danger;
+      font-size: @font-size-small;
+    }
+    & i {
+       width: 0;
+       vertical-align: middle;
+       font-size: 0;
+     }
+  }
+}
+// 增加图片
+.upload-image-add{
+  .get-image-wrapper();
+  & span {
+    display: block;
+    text-align: center;
+    // 改变大小时需要重新定义
+    margin-top: 20px;
+  }
+  & .upload-image-btn {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    //  filter: alpha(opacity: 0);
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+  }
+}
+// 图片提示信息
+.upload-file-desc {
+  display: block;
+  padding-top: 4px;
+  text-align: center;
+  // 改变大小时需要重新定义
+  width: 80px;
+}
+
+/****大尺寸图片****/
+.upload-image-xl {
+  width: 120px;
+  height: 120px;
+  & .upload-image-show {
+    line-height: 120px;
+    .image-remove {
+      top: -48px;
+    }
+  }
+  .progress {
+    margin-top: 48px;
+  }
+  .upload-error {
+    line-height: 102px;
+  }
+  & .upload-image-add > span {
+    margin-top: 40px;
+  }
+  + .upload-file-desc {
+    width: 120px;
+  }
+}
+
+
+/*****************上传文件相关样式*******************/
+.upload-file-btn {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  opacity: 0;
+//  filter: alpha(opacity: 0);
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.upload-file {
+  border: 1px solid @gray-bd-light;
+  border-radius: 2px;
+  padding: 0 16px;
+  margin: 0 0 8px 0 !important;
+}
+.upload-file-name,
+.upload-file-process,
+.upload-file-remove {
+  line-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #666;
+}
+.upload-file-process .progress {
+  width:-moz-calc(100% - 50px);
+  width:-webkit-calc(100% - 50px);
+  width: calc(100% - 50px);
+  display: inline-block;
+}
+.upload-file-error {
+  color: @brand-danger;
+}
+.upload-file-remove {
+  text-align: right;
+  cursor: pointer;
+}
+
+
+
+.strip-grid .row {
+  margin-left: -4px;
+  margin-right: -4px;
+}
+/******栅格间距******/
+.make-form-grid-columns() {
+  // Common styles for all sizes of grid columns, widths 1-12
+  .col(@index) {
+    // initial
+    @item: ~".strip-grid .col-xs-@{index}, .strip-grid .col-sm-@{index}, .strip-grid .col-md-@{index}, .strip-grid .col-lg-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) {
+    // general; "=<" isn't a typo
+    @item: ~".strip-grid .col-xs-@{index}, .strip-grid .col-sm-@{index}, .strip-grid .col-md-@{index}, .strip-grid .col-lg-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) {
+    // terminal
+    @{list} {
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      // Inner gutter via padding
+      padding-left: (@space-base / 2);
+      padding-right: (@space-base / 2);
+    }
+  }
+  .col(1); // kickstart it
+}
+.make-form-grid-columns();
