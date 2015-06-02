@@ -3,46 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <style>
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-        .search-sug {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            width: 100%;
-            display: none;
-            text-align: center;
-        }
-        .search-sug.expanded {
-            display: block;
-        }
-        .search-sug a {
-            color: inherit;
-            text-decoration: none;
-        }
-        .active {
-            color: red;
-        }
-    </style>
     <link rel="stylesheet/less" type="text/css" href="../../less/search-bar.less">
 </head>
 <body>
-    <div data-role="search-bar" data-sug-delay="1500" data-default-sug="default,sug,list" data-max-sug="5" data-default-query="abc"></div>
+    <table>
+        <tr>
+            <td>1asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfsadf</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>
+                <div data-role="search-bar" data-sug-delay="1500" data-default-sug="default,sug,list" data-max-sug="5" data-default-query="abc"></div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>11111</td>
+            <td>1111111</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>
+
+            </td>
+            <td><div data-role="search-bar"></div></td>
+        </tr>
+    </table>
+
     <script src="../../lib/jquery.min.js"></script>
     <script src="./less.min.js"></script>
     <script src="../../js/util.js"></script>
     <script src="../../js/search-bar.js"></script>
     <script>
         $(function() {
-            window.$searchBars = [];
-            // console.log($('[data-role=search-bar]'));
             $('[data-role=search-bar]').each(function(i, e) {
                 var $this = $(this);
-                window.$searchBars.push($this.searchBar({
-                    defaultSugList: ['太极熊猫', '我叫MT 2', '海岛奇兵'],
+                $this.searchBar({
                     /**
                      * @method queryAction how to go search with given query
                      * @param query text to be searched
@@ -54,6 +53,9 @@
                         });
                         console.log('GOING TO', url);
                     },
+                    sugDelay: 150,
+                    disableSug: true,
+                    defaultSugList: ['太极熊猫', '我叫MT 2', '海岛奇兵'],
                     /**
                      * @method how to get and format sug data
                      * @param {string} query query from which to get sug
@@ -85,8 +87,8 @@
                             callback(data);
                             return;
                         }
-                        var url = '/games/mobile/listname/' + query;
 
+                        // var url = '/games/mobile/listname/' + query;
                         // $.getJSON(url, function(rawData) {
                         //     if (rawData.err_code != 0) {
                         //         return false;
@@ -103,9 +105,7 @@
                         }]);
                     },
 
-
-
-                }));
+                });
             });
         });
     </script>

@@ -29,9 +29,10 @@
             config = {};
         }
         var that = this;
+        var now = (new Date()).valueOf();
         // build basic config
         this.config = $.extend(this.config, config);
-        this.$box = $('<div class="nox-search-box"></div>');
+        this.$box = $('<div class="nox-search-box" data-ts="' + now + '"></div>');
         // console.log(this.config.$container);
         this.config.$container.after(this.$box);
         // build dom
@@ -41,9 +42,23 @@
         } else {
             // $container is not an input
             var $oldContainer = this.config.$container.detach();
-            this.$searchInput = $('<input type="text" class="search-input">').appendTo(this.$box)
+            this.$searchInput = $('<input type="text" class="search-input border-radius">').appendTo(this.$box)
             this.$searchBtn = $('<button class="btn btn-xs btn-primary"><i class="nox-search"></i></button>').appendTo(this.$box);
         }
+        this.$searchBtn.on('click', function(e) {
+            that.onEnter(e);
+        });
+        // if sug functionality is disabled, bind enter key and jump out
+        if (config.disableSug) {
+            this.$searchInput.on('keydown', function(e) {
+                // ENTER
+                if (e.keyCode == 13) {
+                    that.onEnter(e.target.value);
+                }
+            });
+            return;
+        }
+        // sug dom and event handlers
         this.$sugList = $('<ul class="search-sug"></ul>');
         this.$box.append(this.$sugList);
         // bind event handlers
@@ -56,11 +71,26 @@
         this.$searchInput.on('focus', function(e) {
             that.onFocus(e);
         });
-        this.$searchInput.on('blur', function(e) {
+
+        this.$sugList.on('mouseenter', '.sug-item', function(e) {
+            that.onSugHover(e);
+        });
+        this.$sugList.on('click', '.sug-item', function(e) {
+            console.log('onclick', this);
+            that.onEnter(that.$searchInput.val());
+        });
+
+        $(document).on('click', function(e) {
+            if (that.$sugList.is('.expanded') && $(e.target).parents('.nox-search-box').length > 0 && $(e.target).parents('.nox-search-box').attr('data-ts') === that.$box.attr('data-ts')) {
+                return;
+            }
             that.onBlur(e);
         });
     };
 
+    SearchBar.prototype.onSugHover = function(e) {
+        this.changeActiveSug($(e.target));
+    };
     SearchBar.prototype.onInput = function(e) {
         var query = e.target.value;
         var that = this;
@@ -92,6 +122,7 @@
     };
     SearchBar.prototype.onFocus = function(e) {
         this.$sugList.addClass('expanded');
+        this.onInput(e);
     };
     SearchBar.prototype.onBlur = function(e) {
         this._closeSug();
@@ -129,11 +160,17 @@
         } else {
             supposedSugIndex = previousSugIndex;
         }
-        $searchInput.val($sugListItems.removeClass('active').eq(supposedSugIndex).addClass('active').attr('data-sug-content') || '');
+        this.changeActiveSug($sugListItems.eq(supposedSugIndex));
+    };
+    SearchBar.prototype.changeActiveSug = function($item) {
+        var $sugListItems = this.$sugList.find('.sug-item[data-sug-content]');
+        $sugListItems.removeClass('active');
+        this.$searchInput.val($item.addClass('active').attr('data-sug-content') || '');
     };
     SearchBar.prototype.onEnter = function(query) {
         if (query) {
             this.config.queryAction(query);
+            this._closeSug();
         }
     };
     SearchBar.prototype.onEscape = function() {
@@ -151,14 +188,15 @@
         for (var i = 0; i < threshold; i++) {
             var item = sugData[i].name,
                 address = sugData[i].link;
-            var li = '<li class="sug-item" data-sug-content="' + item + '"><a href="' + address + '">' + item + '</a></li>';
+            var li = '<li class="sug-item" data-sug-content="' + item + '"><span>' + item + '</span></li>';
             lis += li;
         }
         this._emptySug().append($(lis));
     };
     SearchBar.prototype._closeSug = function() {
-
-        this.$sugList.removeClass('expanded');
+        if (this.$sugList) {
+            this.$sugList.removeClass('expanded');
+        }
     };
     SearchBar.prototype._emptySug = function() {
         console.log(this);
@@ -170,11 +208,12 @@
     /**
      * init plugin
      */
-
+    window.$searchBars = [];
     $.fn.searchBar = function initSearchBar(config) {
         // jquery object
         // DOM i.g. <div data-role="search-bar" data-max-sug="5" data-default-query="$!{queryInfo.defaultQuery}"></div>
         var $this = $(this);
+        window.$searchBars.push($this);
         if (!$this || typeof $this.sbInstance != 'undefined') {
             return $this;
         }
@@ -183,9 +222,9 @@
             queryUrl = $this.attr('data-target'),
             queryMethod = $this.attr('data-action') || 'GET',
             maxSug = parseInt($this.attr('data-max-sug'), 10) || 5,
-            sugDelay = parseInt($this.attr('data-sug-delay', 10)) || 150,
+            sugDelay = parseInt($this.attr('data-sug-delay'), 10) || 150,
             defaultQuery = $this.attr('data-default-query') || '',
-            defaultSugList = $this.attr('data-default-sug') ? $this.attr('data-default-sug').split(',') : [];
+            defaultSugList = $this.attr('data-default-sug-list') ? $this.attr('data-default-sug').split(',') : [];
         // init config > dom attribute > default
         config = $.extend({
             $container: $this,
@@ -204,4 +243,3 @@
         return $this;
     };
 })(jQuery, window);
-
