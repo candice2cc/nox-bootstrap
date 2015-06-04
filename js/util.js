@@ -98,9 +98,89 @@
             }
             return true;
         }
-        function is_idcard(idcard) {
-            var pattern_idcard = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
-            if (!pattern_idcard.test(idcard)) {
+
+        function is_idcard(idCard)
+        {
+            //var pattern_idcard = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+            //if (!pattern_idcard.test(idcard)) {
+            //    return false;
+            //}
+            //return true;
+            var len = idCard.length;
+            var status = false;
+            switch (len) {
+                case 18:
+                    status = checkIdCard18(idCard);
+                    break;
+                case 15:
+                    idCard = idCard15to18(idCard);
+                    status = checkIdCard18(idCard);
+                    break;
+                default:
+                    break;
+            }
+
+            return status;
+        }
+
+        // 计算身份证校验码，根据国家标准GB 11643-1999
+        function idCardVerifyNumber(idCardBase)
+        {
+            var len = idCardBase.length;
+            if (len !== 17) {
+                return false;
+            }
+
+            //加权因子
+            var factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+            //校验码对应值
+            var verifyNumberList = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'];
+            var checkSum = 0;
+            for (var i = 0; i < len; i++) {
+                checkSum += idCardBase.substr(i, 1) * factor[i];
+            }
+
+            var mod = checkSum % 11;
+            return verifyNumberList[mod];
+        }
+
+        // 将15位身份证升级到18位
+        function idCard15to18(idCard)
+        {
+            var len = idCard.length;
+            if (len !== 15) {
+                return false;
+            }
+            // 如果身份证顺序码是996 997 998 999，这些是为百岁以上老人的特殊编码
+            if ($.inArray(idCard.substr(12, 3), ['996', '997', '998', '999']) !== false) {
+                idCard = idCard.substr(0, 6) + '18' + idCard.substr(6, 9);
+            }
+            else {
+                idCard = idCard.substr(0, 6) + '19' + idCard.substr(6, 9);
+            }
+
+            idCard = idCard + idCardVerifyNumber(idCard);
+            return idCard;
+        }
+
+        // 18位身份证校验码有效性检查
+        function checkIdCard18(idCard)
+        {
+            var len = idCard.length;
+            if (len !== 18) {
+                return false;
+            }
+            idCardBase = idCard.substr(0, 17);
+            if (idCardVerifyNumber(idCardBase) != idCard.substr(17, 1).toUpperCase()) {
+                return false;
+            }
+            return true;
+        }
+
+        function is_qq(qq) {
+            // qq的判定标准是2-15位数字
+            var pattern_qq = /^[0-9]{2,15}$/;
+            if (!pattern_qq.test(qq)) {
                 return false;
             }
             return true;
@@ -113,7 +193,8 @@
                 'email': '请输入正确的Email',
                 'url': '请输入合法的（带协议的）URL',
                 'tel': '请输入正确的手机号码',
-                'idcard': '请输入正确的身份证号码'
+                'idcard': '请输入正确的身份证号码',
+                'qq': '请输入正确的QQ号码'
             },
             retData = {};
         if(!validateParamStore){
@@ -196,6 +277,11 @@
                     case 'idcard':
                         if(value !== '' && !is_idcard(value)){
                             failType = validateReasonObject['idcard'];
+                        }
+                        break;
+                    case 'qq':
+                        if(value !== '' && !is_qq(value)){
+                            failType = validateReasonObject['qq'];
                         }
                         break;
                 }
@@ -282,9 +368,9 @@
                     }
                 } else {
                     if (isFunction(errorCallback)) {
-                        errorCallback(res.retMsg);
+                        errorCallback(res.errMsg);
                     } else {
-                        window.alert(res.retMsg);
+                        window.alert(res.errMsg);
                     }
                 }
             },
@@ -337,9 +423,9 @@
                 }
             }else {
                 if(isFunction(errorCallback)) {
-                    errorCallback(res.retMsg);
+                    errorCallback(res.errMsg);
                 }else{
-                    window.alert(res.retMsg);
+                    window.alert(res.errMsg);
                 }
             }
         })
@@ -395,9 +481,9 @@
                 }
             }else {
                 if(isFunction(errorCallback)) {
-                    errorCallback(res.retMsg);
+                    errorCallback(res.errMsg);
                 }else{
-                    window.alert(res.retMsg);
+                    window.alert(res.errMsg);
                 }
             }
         })
