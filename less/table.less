@@ -1,0 +1,29 @@
+.table{
+  line-height: 24px;
+  text-align: left;
+  color:@text-color-weak;
+  th,td{
+    padding: 8px;
+  }
+  th{
+    background: @th-bg;
+    font-weight: normal;
+  }
+  td{
+    border-bottom:1px solid @gray-bd-lighter;
+    &.stress{
+      color:@text-color-strong;
+      a{
+        color:@text-color-strong;
+      }
+    }
+    a{
+      color:@link-color-weak;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+
+  }
+
+}
