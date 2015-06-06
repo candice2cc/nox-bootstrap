@@ -1,4 +1,5 @@
 .site-header {
+  height: @header-height;
   border-bottom: 1px solid @gray-bd-lighter;
   .site-index {
     height: @header-height;
@@ -94,8 +95,14 @@
   }
 }
 .site-header-responsive{
+  height: auto;
   .center-xs {
     @media (max-width: @screen-sm-min) {
+      text-align: center;
+    }
+  }
+  .center-sm{
+    @media (max-width: @screen-md-min) {
       text-align: center;
     }
   }
