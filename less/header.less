@@ -1,5 +1,5 @@
 .site-header {
-  height: @header-height;
+//  height: @header-height;
   border-bottom: 1px solid @gray-bd-lighter;
   .site-index {
     height: @header-height;
@@ -35,64 +35,77 @@
       text-decoration: none;
     }
   }
-  .nav > li {
+  .nav {
     display: inline-block;
-    & > a {
-      display: inline-block;
-      text-align: center;
-      height: @header-height;
-      line-height: @header-height;
-      padding: 0 @header-padding;
-      border-bottom: 2px solid transparent;
-      vertical-align: top;
-    }
-    &.active > a {
-      color: @text-color-primary;
-      border-bottom: 2px solid @text-color-primary;
-    }
-    &.has-sub-nav {
-      position: relative;
-      .sub-nav {
-        display: none;
-        position: absolute;
-        min-width: 124px;
-        padding: 0;
-        margin: 0;
-        top: @header-height + 1;
+    vertical-align: top;
 
-        border: 1px solid @gray-bd-lighter;
-        border-top: none;
-        border-bottom-left-radius: 2px;
-        border-bottom-right-radius: 2px;
-        background: @gray-bg-base;
-        z-index: @zindex-navbar;
-        > li {
-          display: block;
-          width: 100%;
-          padding: 0 20px;
-          height: @sub-nav-height;
-          line-height: @sub-nav-height;
-          border-bottom: 1px solid @gray-bd-lighter;
-          &:last-child {
-            border-bottom: none;
-          }
-          img {
-            margin-right: 10px;
-          }
-        }
+    > li {
+      display: inline-block;
+      & > a {
+        display: inline-block;
+        text-align: center;
+        height: @header-height;
+        line-height: @header-height;
+        padding: 0 @header-padding;
+        border-bottom: 2px solid transparent;
+        vertical-align: top;
       }
-      &:hover {
+      &.active > a {
+        color: @text-color-primary;
+        border-bottom: 2px solid @text-color-primary;
+      }
+      &.has-sub-nav {
+        position: relative;
         .sub-nav {
-          display: block;
+          display: none;
+          position: absolute;
+          min-width: 124px;
+          padding: 0;
+          margin: 0;
+          top: @header-height + 1;
+
+          border: 1px solid @gray-bd-lighter;
+          border-top: none;
+          border-bottom-left-radius: 2px;
+          border-bottom-right-radius: 2px;
+          background: @gray-bg-base;
+          z-index: @zindex-navbar;
+          > li {
+            display: block;
+            width: 100%;
+            padding: 0 20px;
+            height: @sub-nav-height;
+            line-height: @sub-nav-height;
+            border-bottom: 1px solid @gray-bd-lighter;
+            &:last-child {
+              border-bottom: none;
+            }
+            img {
+              margin-right: 10px;
+            }
+          }
         }
-        &.active {
-          > a {
-            border-bottom: 2px solid transparent;
+        &:hover {
+          .sub-nav {
+            display: block;
+          }
+          &.active {
+            > a {
+              border-bottom: 2px solid transparent;
+            }
           }
         }
       }
     }
   }
+  .search-bar-container{
+    display: inline-block;
+    vertical-align: top;
+    height: @header-height;
+    line-height: @header-height;
+    margin-left: 40px;
+  }
+
 }
 .site-header-responsive{
   height: auto;
