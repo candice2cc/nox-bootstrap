@@ -31,19 +31,15 @@ select[size] {
   height: auto;
 }
 
-// Focus for file, radio, and checkbox
-//input[type="file"]:focus,
-//input[type="radio"]:focus,
-//input[type="checkbox"]:focus {
-//  .tab-focus();
-//}
-
+//** 定义form的行距
 .form-group {
 	margin-bottom: @form-group-margin-bottom;
 }
+//** 紧缩版的form行距
 .form-strip .form-group {
   margin-bottom: @form-group-margin-bottom-small;
 }
+//** 宽松版的form样式
 .form-large {
   textarea.form-control,
   select[multiple]& {
@@ -51,9 +47,6 @@ select[size] {
   }
   .form-group {
     margin-bottom: @form-group-margin-bottom-large;
-//    & label {
-//      font-size: @font-size-large;
-//    }
   }
   .form-control {
     font-size: @font-size-large;
@@ -79,6 +72,7 @@ select[size] {
   }
 }
 
+//**
 .form-group > label {
 	font-size: @font-size-base;
 	color: @text-color-base;
@@ -217,10 +211,8 @@ input[type="checkbox"] {
 }
 
 
-// Static form control text
-//
-// Apply class to a `p` element to make any string of text align with labels in
-// a horizontal form layout.
+//** 静态文字
+// 使用p标签
 
 .form-control-static {
   // Size it appropriately next to real form controls
@@ -237,19 +229,13 @@ input[type="checkbox"] {
   }
 }
 
-
+//** 表单的控件和说明水平分布
 .form-horizontal {
 
-  // Consistent vertical alignment of radios and checkboxes
-  //
-  // Labels also get some reset styles, but that is scoped to a media query below.
   .radio,
   .checkbox,
   .radio-inline,
   .checkbox-inline {
-//    margin-top: 0;
-//    margin-bottom: 0;
-//    padding-top: 1px; // Default padding plus a border
   }
 
   // Make form groups behave like rows
@@ -263,13 +249,12 @@ input[type="checkbox"] {
     .control-label {
       text-align: right;
       margin-bottom: 0;
-//      padding-top: (@padding-base-vertical + 1); // Default padding plus a border
       padding-top: 6px;
     }
   }
 
   // Validation states
-  //
+  // 暂时没有使用 后续补充
   // Reposition the icon because it's now within a grid column and columns have
   // `position: relative;` on them. Also accounts for the grid gutter padding.
   .has-feedback .form-control-feedback {
@@ -463,6 +448,7 @@ ul.upload-image-list {
 }
 
 
+//** form行内再分栅格, 之间的间距要变小,为8px
 
 .strip-grid .row {
   margin-left: -4px;
