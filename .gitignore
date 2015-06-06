@@ -18,3 +18,5 @@
 /node_modules/
 /app/
 
+less/nox-bootstrap.less
+gulpfile.js
