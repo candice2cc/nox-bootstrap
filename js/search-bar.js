@@ -46,7 +46,7 @@
             this.$searchBtn = $('<button class="btn btn-xs btn-primary"><i class="nox-search"></i></button>').appendTo(this.$box);
         }
         this.$searchBtn.on('click', function(e) {
-            that.onEnter(e);
+            that.onEnter(that.$searchInput.val());
         });
         // if sug functionality is disabled, bind enter key and jump out
         if (config.disableSug) {
