@@ -5,9 +5,9 @@
     <title></title>
     <link rel="stylesheet/less" type="text/css" href="../less/nox-bootstrap.less">
 </head>
-<body style="min-width: 1200px;">
-<header class="wd-full site-top">
-    <div class="wd-1200 center-block clearfix">
+<body>
+<header class="container site-top">
+    <div class="row center-block clearfix">
         <div class="pull-left">
             <ul class="nav">
                 <li>
@@ -71,16 +71,16 @@
 
 </header>
 
-<header class="site-header bg-normal">
+<header class="site-header site-header-responsive bg-normal">
     <div class="container">
-        <div class="clearfix">
-            <div class="site-index pull-left">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12 center-xs site-index">
                 <a href="javascript:;">
                     <i class="nox-logo-circle"></i>
                     <span class="site-name" href="javascript:;">游戏中心</span>
                 </a>
             </div>
-            <div class="pull-right">
+            <div class="nav-container col-sm-6 col-xs-12 center-xs right-sm">
                 <ul class="nav">
                     <li><a href="javascript:;">首页</a></li>
                     <li><a href="javascript:;">排行</a></li>
@@ -113,6 +113,9 @@
                         </ul>
                     </li>
                 </ul>
+            </div>
+            <div class="search-container">
+                <div data-role="search-bar"></div>
             </div>
         </div>
 
