@@ -25,7 +25,8 @@
     .btn {
         height: @search-height;
         line-height: @search-height;
-        border-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
         width: 54px;
         font-size: 14px;
         vertical-align: middle;
@@ -38,6 +39,9 @@
     }
     input, input:focus {
         border: 1px solid #ccc;
+        border-right:none;
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 2px;
         padding: 0 10px;
         outline-style: none;
     }
