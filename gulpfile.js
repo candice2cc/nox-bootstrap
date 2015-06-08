@@ -28,7 +28,7 @@ var paths = {
 gulp.task('less', function () {
     return gulp.src(paths.less)
         .pipe(less({
-            paths: [ path.join(__dirname, 'less', 'includes') ],
+            paths: [path.join(__dirname, 'less', 'includes')],
             plugins: [autoprefix, cleancss]
         }))
         .pipe(replace('background:#000;background-color:rgba(0,0,0,.75);','background: #000\\9;background-color:rgba(0,0,0,.75);'))

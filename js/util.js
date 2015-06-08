@@ -9,6 +9,27 @@
      * 登陆url
      */
     var PASSPORTURL = "https://passport.bignox.com/sso/login?service=";
+    /**
+     * @method typeOf 复杂类型判断
+     * @param {string|number|boolean|object} o 待判断变量
+     * @return {string} 类型名称
+     */
+    function typeOf(o) {
+        var _toString = Object.prototype.toString;
+        var _type = {
+            'undefined': 'undefined',
+            'number': 'number',
+            'boolean': 'boolean',
+            'string': 'string',
+            '[object Function]': 'function',
+            '[object RegExp]': 'regexp',
+            '[object Array]': 'array',
+            '[object Date]': 'date',
+            '[object Error]': 'error'
+        };
+        return _type[typeof o] || _type[_toString.call(o)] || (o ? "object" : 'null');
+    }
+    util.typeOf = typeOf;
 
     /**
      * 多行文本ellipsis
@@ -700,9 +721,9 @@
                 params.lid = params.setElement($(this),data,params);
             }
             if (!params.regexp.test(file.name)) {
-                params.fileUploadError($(this),params);  
+                params.fileUploadError($(this),params);
             };
-            
+
         }).on('fileuploadsubmit', function (e, data){
         }).on('fileuploadprocessalways', function (e, data) {
         }).on('fileuploadprogressall', function (e, data) {

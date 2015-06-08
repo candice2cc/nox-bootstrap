@@ -1,0 +1,82 @@
+// Core variables and mixins
+@import "variables.less";
+@import "mixins.less";
+// Reset and dependencies
+@import "normalize.less";
+// Core CSS
+@import "scaffolding.less";
+@import "type.less";
+// Components
+@import "icomoon.less";
+@import "buttons.less";
+// Utility classes
+@import "utilities";
+
+
+.nox-search-box {
+    @search-width: 262px;
+    @search-height: 32px;
+    position: relative;
+    display: inline-block;
+    input {
+        width: @search-width;
+        margin: 0;
+    }
+    .btn {
+        height: @search-height;
+        line-height: @search-height;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        width: 54px;
+        font-size: 14px;
+        vertical-align: middle;
+    }
+    i, input {
+        display: inline-block;
+        vertical-align: middle;
+        height: @search-height;
+        line-height: 30px;
+    }
+    input, input:focus {
+        border: 1px solid #ccc;
+        border-right:none;
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 2px;
+        padding: 0 10px;
+        outline-style: none;
+    }
+
+    .search-sug {
+        position: absolute;
+        top: @search-height;
+        z-index: 100;
+        text-align: left;
+        line-height: @search-height;
+        background-color: #FFF;
+        border: 1px solid #CCC;
+        border-top: none;
+        width: @search-width;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 100%;
+        display: none;
+        .sug-item {
+            padding-left: 10px;
+            cursor: pointer;
+            &.active {
+                color: #FFF;
+                background-color: @link-hover-color-weak;
+            }
+        }
+        &.expanded {
+            display: block;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+
+
+}
