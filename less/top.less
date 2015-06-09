@@ -13,12 +13,16 @@
     margin: 0;
     padding: 0;
   }
+  .nav{
+    display: block;
+    overflow: hidden;
+  }
   .nav li {
     display: inline-block;
+    float:left;
     height: @top-height;
     line-height: @top-height;
-    &:nth-last-child(n+2):after {
-      content: "|";
+    .sep {
       display: inline-block;
       margin: 0 24px;
       color: @text-color-normal;
