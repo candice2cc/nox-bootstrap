@@ -2,7 +2,7 @@ function Passport(authFlag) {
     if (typeof authFlag != 'boolean') {
         authFlag = false;
     }
-    console.log('authFlag', authFlag);
+    //console.log('authFlag', authFlag);
     // 常量
     // 主要标志调用的执行是否正常，不包含业务逻辑
     var STATUS_SUCCESS = 1;

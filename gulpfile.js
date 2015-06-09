@@ -18,7 +18,7 @@ var LessPluginCleanCSS = require('less-plugin-clean-css'),
 
 var paths = {
     less:'./less/nox-bootstrap.less',
-    js:'./js/*.js',
+    js:['./js/*.js','!./js/passport.js'],
     image:'./images/*',
     fonts:'./fonts/*',
     dist:'./dist'
