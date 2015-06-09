@@ -1,6 +1,5 @@
-
-
-//输入框组 input groups
+//==输入框组 input groups
+//
 .input-group {
   position: relative; // For dropdowns
   display: table;
@@ -64,11 +63,6 @@
   border-radius: @border-radius-base;
 
   // Sizing
-  &.input-sm {
-    padding: @space-base @space-base;
-    font-size: @font-size-small;
-    border-radius: @border-radius-base;
-  }
   &.input-lg {
     padding: @space-base*2 @space-base;
     font-size: @font-size-large;
@@ -84,24 +78,14 @@
 
 // Reset rounded corners
 .input-group .form-control:first-child,
-.input-group-addon:first-child,
-.input-group-btn:first-child > .btn,
-.input-group-btn:first-child > .btn-group > .btn,
-.input-group-btn:first-child > .dropdown-toggle,
-.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+.input-group-addon:first-child {
   .border-right-radius(0);
 }
 .input-group-addon:first-child {
   border-right: 0;
 }
 .input-group .form-control:last-child,
-.input-group-addon:last-child,
-.input-group-btn:last-child > .btn,
-.input-group-btn:last-child > .btn-group > .btn,
-.input-group-btn:last-child > .dropdown-toggle,
-.input-group-btn:first-child > .btn:not(:first-child),
-.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+.input-group-addon:last-child {
   .border-left-radius(0);
 }
 .input-group-addon:last-child {

@@ -1,0 +1,32 @@
+//== 商业平台的footer
+//
+body > footer {
+  width: 100%;
+  height: 96px;
+  line-height: 96px;
+  color: @text-color-weaker;
+  font-size: 13px;
+  text-align: center;
+  overflow: hidden;
+  > .footer-wrapper {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    line-height: @line-height-base;
+    vertical-align: middle;
+    > p {
+      margin: 0;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+  > i {
+    width:0;
+    vertical-align:middle;
+    font-size:0;
+  }
+}
+span[id^='cnzz_stat_icon'] {
+  display:none;
+}
