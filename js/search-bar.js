@@ -14,7 +14,6 @@
     function SearchBar(config) {
 
         this.init(config);
-        console.log(this);
         // return this;
     }
     SearchBar.prototype.config = {
@@ -33,7 +32,6 @@
         // build basic config
         this.config = $.extend(this.config, config);
         this.$box = $('<div class="nox-search-box" data-ts="' + now + '"></div>');
-        // console.log(this.config.$container);
         this.config.$container.after(this.$box);
         // build dom
         if (this.config.$container[0].tagName == 'input') {
@@ -76,7 +74,6 @@
             that.onSugHover(e);
         });
         this.$sugList.on('click', '.sug-item', function(e) {
-            console.log('onclick', this);
             that.onEnter(that.$searchInput.val());
         });
 
@@ -168,6 +165,7 @@
         this.$searchInput.val($item.addClass('active').attr('data-sug-content') || '');
     };
     SearchBar.prototype.onEnter = function(query) {
+        query = $.trim(query);
         if (query) {
             this.config.queryAction(query);
             this._closeSug();
@@ -199,7 +197,6 @@
         }
     };
     SearchBar.prototype._emptySug = function() {
-        console.log(this);
         var $container = this.$sugList;
         return $container.empty();
     };
