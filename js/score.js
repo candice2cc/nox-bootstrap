@@ -39,7 +39,7 @@
     };
 
 
-    // TOP PLUGIN DEFINITION
+    // PLUGIN DEFINITION
     // =======================
     function Plugin(option) {
         return this.each(function () {
@@ -55,14 +55,14 @@
     $.fn.score = Plugin;
     $.fn.score.Constructor = Score;
 
-    // TOP NO CONFLICT
+    // NO CONFLICT
     // =================
 
     $.fn.score.noConflict = function () {
         $.fn.score = old;
         return this;
     }
-    // TOP DATA-API
+    // DATA-API
     // ==============
 
 

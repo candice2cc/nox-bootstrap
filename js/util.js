@@ -638,6 +638,29 @@
     }
     util.formatDate = formatDate;
 
+    function formatDate2(datetime,format)
+    {
+        var timeobj = new Date(parseInt(datetime));
+        function pad(number) {
+            var r = String(number);
+            if ( r.length === 1 ) {
+                r = '0' + r;
+            }
+            return r;
+        }
+        var year = timeobj.getFullYear();
+        var month = pad(timeobj.getMonth() + 1);
+        var day = pad(timeobj.getDate());
+        var hours = pad(timeobj.getHours());
+        var minutes = pad(timeobj.getMinutes());
+        var secondes = pad(timeobj.getSeconds());
+
+        var datetime = format.replace(/%Y/g,year).replace(/%m/g,month).replace(/%d/g,day).replace(/%H/g,hours).replace(/%M/g,minutes).replace(/%S/g,secondes);
+        return datetime;
+
+    }
+    util.formatDate2 = formatDate2;
+
     /**
      * 日期转化成时间戳
      * @param str

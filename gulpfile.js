@@ -18,7 +18,7 @@ var LessPluginCleanCSS = require('less-plugin-clean-css'),
 
 var paths = {
     less:'./less/nox-bootstrap.less',
-    js:'./js/*.js',
+    js:['./js/*.js','!./js/passport.js'],
     image:'./images/*',
     fonts:'./fonts/*',
     dist:'./dist'
@@ -30,6 +30,7 @@ gulp.task('less', function () {
         .pipe(less({
             paths: [path.join(__dirname, 'less', 'includes')],
             plugins: [autoprefix, cleancss]
+            //plugins: [autoprefix]
         }))
         .pipe(replace('background:#000;background-color:rgba(0,0,0,.75);','background: #000\\9;background-color:rgba(0,0,0,.75);'))
         .pipe(gulp.dest('./dist/css'))
