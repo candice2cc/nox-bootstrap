@@ -12,6 +12,9 @@
         var currentPage = option.currentPage || 1;
         var step = option.step || 7;
         var baseUrl = option.baseUrl || "/";
+        if (totalPage <= 1){
+            return false;
+        }
 
         var pageNumberList = calcPageNumberList(currentPage, totalPage, step);
         var html = '<div class="pages-container"><div class="pages">';
@@ -38,7 +41,7 @@
     function calcPageNumberList(currentPage, totalPage, step) {
         var pageNumberList = [];
         if (totalPage <= step) {
-            pageNumberList = r(1, step);
+            pageNumberList = r(1, totalPage);
         } else {
             if (currentPage <= step) {
                 if(currentPage > 1){
