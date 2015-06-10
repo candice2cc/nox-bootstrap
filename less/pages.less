@@ -1,0 +1,35 @@
+.pages-container{
+  text-align: center;
+  .pages {
+    display: inline-block;
+    overflow: hidden;
+    > a,span{
+      display: inline-block;
+      float:left;
+      height: 25px;
+      line-height: 25px;
+      margin-right: 8px;
+      color: @text-color-normal;
+      font-size: @font-size-normal;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+    > a{
+      padding: 0 8px;
+      border: 1px solid @gray-bd-lighter;
+      border-radius: 2px;
+      &:hover,
+      &.active {
+        color: #ffffff;
+        text-decoration: none;
+        background: @brand-primary;
+        border: 1px solid @brand-primary;
+      }
+    }
+  }
+}
+
+
+
+
