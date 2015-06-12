@@ -13,6 +13,7 @@
         var step = option.step || 7;
         var baseUrl = option.baseUrl || "/";
         if (totalPage <= 1){
+            $(el).html("");
             return false;
         }
 
