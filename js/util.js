@@ -426,7 +426,7 @@
             if(res.user && !res.user.loginState){
                 //滚去登录
                 if (params && params.isRedirect) {
-                     window.location = PASSPORTURL + window.location.href;
+                    window.location.reload(true);
                 }
                 //else if (PASSPORT_INSTANCE) {
                 //     PASSPORT_INSTANCE.show();
@@ -485,7 +485,7 @@
             if(res.user && !res.user.loginState){
                 //同样滚去登录
                 if (params && params.isRedirect) {
-                    window.location = PASSPORTURL + window.location.href;
+                    window.location.reload(true);
                 }
                 //else if (PASSPORT_INSTANCE) {
                 //     PASSPORT_INSTANCE.show();
