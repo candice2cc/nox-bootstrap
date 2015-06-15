@@ -427,6 +427,7 @@
                 //滚去登录
                 if (params && params.isRedirect) {
                     window.location.reload(true);
+                    return;
                 }
                 //else if (PASSPORT_INSTANCE) {
                 //     PASSPORT_INSTANCE.show();
@@ -486,6 +487,7 @@
                 //同样滚去登录
                 if (params && params.isRedirect) {
                     window.location.reload(true);
+                    return;
                 }
                 //else if (PASSPORT_INSTANCE) {
                 //     PASSPORT_INSTANCE.show();
