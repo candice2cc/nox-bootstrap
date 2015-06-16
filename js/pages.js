@@ -39,6 +39,7 @@
         return a > b ? [] : [a].concat(r(++a, b))
     }
 
+
     function calcPageNumberList(currentPage, totalPage, step) {
         var pageNumberList = [];
         if (totalPage <= step) {
@@ -72,7 +73,11 @@
             var $this = $(this)
             var data = $this.data('bs.pages');
 
-            if (!data) $this.data('bs.pages', (data = new Pages(this, option)));
+            if (!data) {
+                $this.data('bs.pages', (data = new Pages(this, option)));
+            }else{
+                data.pages(this,option);
+            }
             if (typeof option == 'string') data[option].call($this);
         })
     }
