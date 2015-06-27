@@ -665,7 +665,7 @@
 
     /**
      * 日期转化成时间戳
-     * @param str
+     * @param str,格式支持2015-06-16 14:04:12, 2015/06/16, 20150616
      * @returns {number}
      */
     function strtotime(str)
@@ -678,11 +678,23 @@
             timestamp = timestamp / 1000;
         }
         else {
-            // 获取某个时间格式的时间戳
-            if (str.split(' ').length === 1) {
-                str = str + ' 00:00:00';
+            var isoExp = /^\s*(\d{4})[-\/\s]?(\d{1,2})[-\/\s]?(\d{1,2})\s*(\d{0,2})[:]?(\d{0,2})[:]?(\d{0,2})\s*$/,
+                date = new Date(NaN), month,
+                parts = isoExp.exec(str);
+
+            if(parts) {
+                month = +parts[2];
+                date.setFullYear(parts[1], month - 1, parts[3]);
+                if(month != date.getMonth() + 1) {
+                    alert('aa');
+                    date.setTime(NaN);
+                }
+                parts[4] = parts[4] === '' ? 0 : parts[4];
+                parts[5] = parts[5] === '' ? 0 : parts[5];
+                parts[6] = parts[6] === '' ? 0 : parts[6];
+                date.setHours(parts[4], parts[5], parts[6]);
             }
-            timestamp = Date.parse(new Date(str));
+            timestamp = Date.parse(date);
             timestamp = timestamp / 1000;
         }
         return timestamp;
