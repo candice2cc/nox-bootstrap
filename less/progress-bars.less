@@ -30,16 +30,6 @@
   .transition(width .6s ease);
 }
 
-
-// Call animation for the active one
-//
-// `.progress.active .progress-bar` is deprecated as of v3.2.0 in favor of the
-// `.progress-bar.active` approach.
-.progress.active .progress-bar,
-.progress-bar.active {
-  .animation(progress-bar-stripes 2s linear infinite);
-}
-
 .progress-bar-variant(@color) {
   background-color: @color;
 }

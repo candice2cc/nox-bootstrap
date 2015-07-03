@@ -1,0 +1,51 @@
+//== Panels
+//
+
+.panel {
+  margin-bottom: 16px;
+  background-color: @gray-bg-base;
+}
+
+.panel-heading {
+  // 底部边框我觉得从逻辑上来讲,跟heading比较近
+  border-bottom: 1px solid @gray-bd-lighter;
+  font-size: 16px;
+  // 不加line-height:40 是因为heading等级太高了, 里面可能嵌套很多内容, 继承影响太大了
+  padding: 8px 0;
+  // small一般用于比较弱化的文字
+  small,
+  .small {
+    font-size: 14px;
+  }
+}
+
+// panel-title为主色调
+.panel-title {
+  color: @brand-primary;
+  line-height: 24px;
+}
+
+// heading下面没有边框
+.panel-noborder {
+  & > .panel-heading {
+    border-bottom: none;
+  }
+}
+
+// body有边框
+.panel-bordered {
+  & > .panel-heading {
+    border-bottom: none;
+  }
+  & > .panel-body {
+    border: 1px solid @gray-bd-lighter;
+  }
+}
+
+// panel有阴影
+.panel-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  & > .panel-heading {
+    padding: 16px 8px 8px 8px;
+  }
+}
