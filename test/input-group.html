@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet/less" type="text/css" href="../less/nox-bootstrap.less">
+</head>
+<body>
+<div class="container">
+    <form class="form-horizontal padding-left-times-4 padding-right-times-4 padding-bottom-times-4 padding-top-times-4">
+        <div class="form-group">
+            <label for="version" class="col-md-3 control-label">*版本号</label>
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">V</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" id="version">
+                </div>
+                <p class="help-block" data-hint="不超过30个汉字">只能由数字和.组成,且不能重复</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mail" class="col-md-3 control-label">*邮箱</label>
+            <div class="col-md-7">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2" id="mail">
+                    <span class="input-group-addon" id="basic-addon2">@example.com</span>
+                </div>
+                <p class="help-block" data-hint="不超过30个汉字">只能由数字和.组成,且不能重复</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="version" class="col-md-3 control-label">*金额</label>
+            <div class="col-md-7">
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-addon">.00</span>
+                </div>
+                <p class="help-block" data-hint="不超过30个汉字">只能由数字和.组成,且不能重复</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-7 col-md-offset-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-md" type="button">Go!</button>
+                    </span>
+                </div>
+                <p class="help-block">这是一个带按钮的input-groups</p>
+            </div>
+        </div>
+
+    </form>
+</div>
+<script src="js/less.min.js" type="text/javascript"></script>
+</body>
+</html>

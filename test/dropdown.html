@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet/less" type="text/css" href="../less/nox-bootstrap.less">
+    <style>
+    </style>
+</head>
+<body>
+<div class="container">
+    <form class="form-horizontal padding-left-times-4 padding-right-times-4 padding-bottom-times-4 padding-top-times-4">
+        <!--一行显示两个模拟select下拉框-->
+        <div class="form-group">
+            <label for="address" class="col-md-3 control-label">地区</label>
+            <div class="col-md-7" id="address" data-toggle="address">
+                <!--窄版的栅格, 一般用于行内栅格, 虽然嵌套层次很深, 但都是有必要的-->
+                <div class="strip-grid">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div class="dropdown">
+                                <a id="province" class="fake-select dropdown-toggle" data-toggle="dropdown">
+                                    <span>北京addsfsdfsdfsdfsdfsdffdfsfsd</span>
+                                    <i class="nox-sort-down"></i>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="province">
+                                    <li><a data-id="10">省</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="active"><a data-id="11">北京</a></li>
+                                    <li class="disabled"><a data-id="12">天津</a></li>
+                                    <li><a data-id="13">河北</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class=" dropdown">
+                                <!--button可以获得focus的状态, 该下拉展示的时候可以试试上下箭头按键, 是有focus状态的 -->
+                                <button id="city" class="dropdown-toggle fake-select" data-toggle="dropdown">
+                                    <span class="ellipsis">海淀</span>
+                                    <i class="nox-sort-down"></i>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="city">
+                                    <li><a href="javascript:void(0)" data-id="1301">昌平</a></li>
+                                    <li><a href="javascript:void(0)" data-id="1302">东城</a></li>
+                                    <li class="active"><a href="javascript:void(0)" data-id="1303">海淀</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--一行显示一个模拟select下拉框-->
+        <div class="form-group">
+            <label for="payment" class="col-md-3 control-label">*支付类型</label>
+            <div class="col-md-7">
+                <div class="dropdown">
+                    <a id="payment" class="dropdown-toggle fake-select" data-toggle="dropdown" aria-expanded="false">
+                        <span data-id="0">免费</span>
+                        <i class="nox-sort-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="listbox" aria-labelledby="payment">
+                        <li class="active" data-id="0"><a>免费</a></li>
+                        <li class="" data-id="1"><a>试用后付费</a></li>
+                        <li class="" data-id="2"><a>内容付费</a></li>
+                        <li class="" data-id="3"><a>解锁付费</a></li>
+                        <li class="" data-id="4"><a>道具付费</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!--右对齐的下拉框-->
+        <div class="form-group">
+            <label for="payment" class="col-md-3 control-label">*普通的下拉框</label>
+            <div class="col-md-4">
+                <div class="dropdown clearfix">
+                    <button class="btn btn-default btn-md dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%">
+                        Dropdown
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu3" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dropdown clearfix pull-right">
+                    <input class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="Dropdown">
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu4" role="listbox">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--不同尺寸的下拉框-->
+        <div class="form-group">
+            <label class="col-md-3 control-label">*较窄的下拉框</label>
+            <div class="col-md-4">
+                <div class="dropdown">
+                    <a class="fake-select fake-select-sm dropdown-toggle" data-toggle="dropdown">
+                        <span>北京</span>
+                        <i class="nox-sort-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a data-id="10">省</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="active"><a data-id="11">北京</a></li>
+                        <li class="disabled"><a data-id="12">天津</a></li>
+                        <li><a data-id="13">河北</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label">*较宽的下拉框</label>
+            <div class="col-md-4">
+                <div class="dropup">
+                    <a class="fake-select fake-select-lg dropdown-toggle" data-toggle="dropdown">
+                        <span>北京</span>
+                        <i class="nox-sort-up"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a data-id="10">省</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="active"><a data-id="11">北京</a></li>
+                        <li class="disabled"><a data-id="12">天津</a></li>
+                        <li><a data-id="13">河北</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <div class="row">
+    </div>
+</div>
+<script src="js/less.min.js" type="text/javascript"></script>
+<script src="../lib/jquery.min.js" type="text/javascript"></script>
+<script src="../js/dropdown.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function(){
+        $(document).on('hidden.nox.dropdown', hideDropdownMenu);
+    });
+    /**
+     * 改方法仅适用于模拟select, 选择后的事件需要自己处理
+     * @param event
+     * @param obj
+     */
+    function hideDropdownMenu (event, obj) {
+        var clickTarget = obj.clickTarget;
+        var relatedTarget = $(obj.relatedTarget);
+        if (clickTarget) {
+            var dropdownMenu = clickTarget.parents('.dropdown-menu');
+            if (dropdownMenu.length > 0) {
+                relatedTarget.find('span').html(clickTarget.html());
+                dropdownMenu.find('li').removeClass('active');
+                clickTarget.parent().addClass('active');
+            }
+        }
+    }
+</script>
+</body>
+</html>
