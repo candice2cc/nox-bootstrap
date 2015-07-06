@@ -20,6 +20,27 @@
     Top.prototype.close = function (e) {
         $(menuHead).parents(".menu").removeClass("active");
     };
+    Top.prototype.updateMsg = function(){
+        if($(".site-top").find(".login").hasClass("hide")){
+            return;
+        }
+
+        var updateMsgDom = function(result){
+
+            if(result.errNum == 100){
+                var data = result.retSingleData;
+                $(".site-top").find(".user-msg").find("a").text("消息（" + data.unReadCount + "）");
+            }else{
+                $(".site-top").find(".user-msg").find("a").text("消息");
+                alert('服务器错误,请稍后再试');
+            }
+        };
+
+        $.getJSON(CONFIG.url.getMessage+"?callback=?",{}).done(updateMsgDom).fail(function(){
+            alert('服务器错误,请稍后再试');
+        });
+
+    };
 
     // TOP PLUGIN DEFINITION
     // =======================
@@ -51,5 +72,6 @@
     $(document).on('click.bs.top.data-api', menuBody, function(e){e.stopPropagation();});
 
     $(document).on('click.bs.top.data-api', Top.prototype.close);
+    $(document).ready(Top.prototype.updateMsg);
 
 }(jQuery);
