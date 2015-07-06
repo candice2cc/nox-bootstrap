@@ -32,12 +32,15 @@
                 $(".site-top").find(".user-msg").find("a").text("消息（" + data.unReadCount + "）");
             }else{
                 $(".site-top").find(".user-msg").find("a").text("消息");
-                alert('服务器错误,请稍后再试');
+                console.log("获取消息中心异常，错误码："+ result.errNum);
+                //alert('服务器错误,请稍后再试');
             }
         };
 
         $.getJSON(CONFIG.url.getMessage+"?callback=?",{}).done(updateMsgDom).fail(function(){
-            alert('服务器错误,请稍后再试');
+            $(".site-top").find(".user-msg").find("a").text("消息");
+            console.log("获取消息中心失败");
+            //alert('服务器错误,请稍后再试');
         });
 
     };
