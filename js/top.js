@@ -24,24 +24,74 @@
         if($(".site-top").find(".login").hasClass("hide")){
             return;
         }
+        //获得tickets
 
-        var updateMsgDom = function(result){
+        var getTicket = function(callback) {
+            $.ajax({
+                type: "GET",
+                url: CONFIG.url.getTicket,
+                data: {
+                    service:CONFIG.url.getMessage,
+                    gateway: true,
+                    rt: 1
+                },
+                dataType: "jsonp"
+            }).done(function(result){
+                console.log(result);
+                if(result && result['errNum'] == 100){
+                    var data = result.retData;
+                    if(data.remoteLoginState == 1){
+                        callback(data.st,updateMsgDom);
+                    }
+                }
 
-            if(result.errNum == 100){
-                var data = result.retSingleData;
-                $(".site-top").find(".user-msg").find("a").text("消息（" + data.unReadCount + "）");
-            }else{
-                $(".site-top").find(".user-msg").find("a").text("消息");
-                console.log("获取消息中心异常，错误码："+ result.errNum);
-                //alert('服务器错误,请稍后再试');
-            }
+            }).fail(function(){
+                console.log("获取ticket失败");
+
+            });
         };
 
-        $.getJSON(CONFIG.url.getMessage+"?callback=?",{}).done(updateMsgDom).fail(function(){
-            $(".site-top").find(".user-msg").find("a").text("消息");
-            console.log("获取消息中心失败");
-            //alert('服务器错误,请稍后再试');
-        });
+
+        var getMessage = function(ticket,callback){
+            $.getJSON(CONFIG.url.getMessage+"?callback=?",{ticket:ticket}).done(function(result){
+                console.log(result);
+                if(result && result['errNum'] == 100){
+                    callback(result.retSingleData);
+                }
+            }).fail(function(){
+                console.log("获取消息中心失败");
+            });
+        };
+
+        var updateMsgDom = function(data){
+            $(".site-top").find(".user-msg").find("a").text("消息（" + data.unReadCount + "）");
+        };
+
+
+        getTicket(getMessage);
+
+
+
+
+        //
+        ////查询消息数量
+        //var updateMsgDom = function(result){
+        //
+        //    if(result && result.errNum == 100){
+        //        var data = result.retSingleData;
+        //        $(".site-top").find(".user-msg").find("a").text("消息（" + data.unReadCount + "）");
+        //    }else{
+        //        $(".site-top").find(".user-msg").find("a").text("消息");
+        //        console.log("获取消息中心异常，错误码："+ result.errNum);
+        //        //alert('服务器错误,请稍后再试');
+        //    }
+        //};
+        //
+        //$.getJSON(CONFIG.url.getMessage+"?callback=?",{}).done(updateMsgDom).fail(function(){
+        //    $(".site-top").find(".user-msg").find("a").text("消息");
+        //    console.log("获取消息中心失败");
+        //    //alert('服务器错误,请稍后再试');
+        //});
 
     };
 
