@@ -51,11 +51,30 @@
      * @param initBodyHeight 原高度
      * @returns number
      */
+
     function getHeightFix(initBodyHeight) {
         var fix = $(window).height() - initBodyHeight;
         return fix;
     }
     util.getHeightFix = getHeightFix;
+
+    function autoFixPageHeight(target){
+        if(!target){
+            target = $("body > section.content");
+        }
+
+        var initBodyHeight = $(document.body).outerHeight(true);
+        var fixObjHeight = target.height();
+        var callback = function(){
+            var fix = getHeightFix(initBodyHeight);
+            if(fix > 0){
+                target.height(fixObjHeight + fix);
+            }
+        };
+        $(document).ready(callback);
+        $(window).resize(callback);
+    }
+    util.autoFixPageHeight = autoFixPageHeight;
 
 
     /**
