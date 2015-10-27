@@ -86,6 +86,23 @@
   }
 }
 
+.make-btn(@class) when ( @class = info) {
+  .btn-@{class},
+  .btn-@{class}:focus,
+  .btn-@{class}.focus {
+    .button-variant(@btn-info-color, @btn-info-bg, @btn-info-border);
+  }
+
+  .btn-@{class}:hover,
+  .btn-@{class}.hover {
+    .button-variant(@btn-hover-info-color, @btn-hover-info-bg, @btn-hover-info-border);
+  }
+  .btn-@{class}:active,
+  .btn-@{class}.active {
+    .button-variant(@btn-active-info-color, @btn-active-info-bg, @btn-active-info-border);
+  }
+}
+
 .button-variant(@color;@background;@border-color) {
   color: @color;
   background: @background;
