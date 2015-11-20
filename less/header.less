@@ -4,11 +4,24 @@
   .site-index {
     height: @header-height;
     line-height: @header-height;
-    > a {
-      background: url(../images/logo-for-union.png) no-repeat left center;
+    a {
       display: block;
       text-indent: -1000px;
       width: 212px;
+      background-repeat: no-repeat;
+      background-position: left center;
+      &.logo-union {
+        background-image: url(../images/logo-for-union.png);
+      }
+      &.logo-tui {
+        background-image: url(../images/logo-for-tui.png);
+      }
+      &.logo-dev {
+        background-image: url(../images/logo-for-dev.png);
+      }
+      &.logo-app {
+        background-image: url(../images/logo-for-app.png);
+      }
     }
   }
   ul {
